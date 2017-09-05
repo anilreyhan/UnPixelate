@@ -34,7 +34,7 @@ public class GameScreen extends AppCompatActivity {
     public ArrayList<Integer> matchedBoxes = new ArrayList<>(100);
     int lastColor;
     Vibrator vibrator;
-    boolean vibrate;
+    boolean vibratePref = true;
 
 
     @Override
@@ -53,7 +53,6 @@ public class GameScreen extends AppCompatActivity {
         display.getSize(size);
         int width = size.x;
         int height = size.y;
-        imageAdapter = new ImageAdapter(this, width, height);
 
         Toast.makeText(getApplicationContext(), "W: " + width + " -- H: " + height, Toast.LENGTH_SHORT).show();
 
@@ -73,12 +72,10 @@ public class GameScreen extends AppCompatActivity {
 
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-        final Intent back = new Intent(getApplicationContext(), MainActivity.class);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(back);
-                counter = 20;
+                onBackPressed();
             }
         });
 
@@ -91,7 +88,9 @@ public class GameScreen extends AppCompatActivity {
                 } else {
                     if (lastColor == 1) {
                     } else {
-                        vibrator.vibrate(50);
+                        if (vibratePref) {
+                            vibrator.vibrate(50);
+                        }
                         mp.start();
                         for (int i = 0; i < 10; i++) {
                             checkColorsHorizontally(i);
@@ -130,7 +129,9 @@ public class GameScreen extends AppCompatActivity {
                 } else {
                     if (lastColor == 2) {
                     } else {
-                        vibrator.vibrate(50);
+                        if (vibratePref) {
+                            vibrator.vibrate(50);
+                        }
                         mp.start();
 
                         for (int i = 0; i < 10; i++) {
@@ -167,7 +168,9 @@ public class GameScreen extends AppCompatActivity {
                 } else {
                     if (lastColor == 3) {
                     } else {
-                        vibrator.vibrate(50);
+                        if (vibratePref) {
+                            vibrator.vibrate(50);
+                        }
                         mp.start();
 
                         for (int i = 0; i < 10; i++) {
@@ -202,7 +205,9 @@ public class GameScreen extends AppCompatActivity {
                 } else {
                     if (lastColor == 4) {
                     } else {
-                        vibrator.vibrate(50);
+                        if (vibratePref) {
+                            vibrator.vibrate(50);
+                        }
                         mp.start();
 
                         for (int i = 0; i < 10; i++) {
@@ -236,7 +241,9 @@ public class GameScreen extends AppCompatActivity {
                 } else {
                     if (lastColor == 5) {
                     } else {
-                        vibrator.vibrate(50);
+                        if (vibratePref) {
+                            vibrator.vibrate(50);
+                        }
                         mp.start();
 
                         for (int i = 0; i < 10; i++) {
@@ -263,13 +270,6 @@ public class GameScreen extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
-            finish();
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 
     public boolean checkNumberOfMoves() {
         return false;
@@ -304,8 +304,6 @@ public class GameScreen extends AppCompatActivity {
     public void checkColors(int box) {
 
 
-
-
     }
 
     public void updateView() {
@@ -337,5 +335,9 @@ public class GameScreen extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         banner = (ImageView) findViewById(R.id.imageView);
         startButton = (Button) findViewById(R.id.startButton);
-        //settingsButton = (Button) findViewById(R.id.settingsButton);
+        settingsButton = (Button) findViewById(R.id.settingsButton);
 
 
         //banner.setLayoutParams(new ImageView());
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-/*
+
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        */
+
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -67,20 +67,4 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-/*
-*
-* <Button
-        android:id="@+id/settingsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
 
-
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:layout_marginLeft="70dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintVertical_bias="0.529" />
-*/

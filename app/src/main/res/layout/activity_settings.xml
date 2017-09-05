@@ -61,17 +61,18 @@
             android:layout_width="304dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Difficulty"
+            android:text="Vibration"
             android:gravity="center"
             android:textSize="15sp"
             app:layout_constraintHorizontal_weight="2"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="4dp" />
 
-        <Spinner
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/difficultySpinner"
+            android:id="@+id/vibrationCheckBox"
+            android:checked="true"
             android:layout_marginRight="16dp"
             android:layout_marginTop="8dp"
             app:layout_constraintRight_toRightOf="parent"
