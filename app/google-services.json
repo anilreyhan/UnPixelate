@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "882669974870",
+    "firebase_url": "https://unpixelate-173716.firebaseio.com",
+    "project_id": "unpixelate-173716",
+    "storage_bucket": "unpixelate-173716.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882669974870:android:6461f1b4b4c7759c",
+        "android_client_info": {
+          "package_name": "com.anilreyhan.unpixelate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882669974870-j8cui2oj03beut78vmb06iak3h81rpb8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anilreyhan.unpixelate",
+            "certificate_hash": "1f284d4576a846b19d1195781d74853317e7dec5"
+          }
+        },
+        {
+          "client_id": "882669974870-cbkfr47r8742md56bvbte5tubfdh45cb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx_xR1ktLbdR7m22mBBuOcdQLqtjAHiAw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882669974870-cbkfr47r8742md56bvbte5tubfdh45cb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

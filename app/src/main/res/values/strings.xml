@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">UnPixelate</string>
+
+    <string name="title_activity_game_screen">UnPixelate</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="movesLabel">Moves Left: 20 </string>
+    <string name="cyanButton">Cyan Button</string>
+    <string name="greenButton">Green Button</string>
+    <string name="redButton">Red Button</string>
+    <string name="yellowButton">Yellow Button</string>
+    <string name="backButton">Back</string>
+    <string name="blueButton">Blue Button</string>
+    <string name="banner">Banner</string>
+    <string name="startButton">Start Game!</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="banner_ad_unit_id">ca-app-pub-4253179676056693/1503619483</string>
+
+
+</resources>
