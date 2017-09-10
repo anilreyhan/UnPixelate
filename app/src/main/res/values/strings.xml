@@ -15,6 +15,10 @@
     <string name="startButton">Start Game!</string>
     <string name="title_activity_settings">Settings</string>
     <string name="banner_ad_unit_id">ca-app-pub-4253179676056693/1503619483</string>
+    <string name="vibrationPref">y</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_feedback">Feedback</string>
+    <string name="action_about">About</string>
 
 
 </resources>

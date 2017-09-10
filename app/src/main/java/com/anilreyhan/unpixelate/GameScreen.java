@@ -46,7 +46,6 @@ public class GameScreen extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        final MediaPlayer mp = MediaPlayer.create(this, R.raw.button_sound);
 
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
@@ -78,7 +77,7 @@ public class GameScreen extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
+        matchedBoxes.clear();
         updateLastColor();
         blueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,9 +90,10 @@ public class GameScreen extends AppCompatActivity {
                         if (vibratePref) {
                             vibrator.vibrate(50);
                         }
-                        mp.start();
+
+                        checkColorsHorizontally(0);
+
                         for (int i = 0; i < 10; i++) {
-                            checkColorsHorizontally(i);
                             checkColorsVertically(i);
                         }
 
@@ -114,8 +114,6 @@ public class GameScreen extends AppCompatActivity {
                         updateView();
                     }
                 }
-                mp.stop();
-                mp.reset();
             }
         });
 
@@ -132,10 +130,9 @@ public class GameScreen extends AppCompatActivity {
                         if (vibratePref) {
                             vibrator.vibrate(50);
                         }
-                        mp.start();
+                        checkColorsHorizontally(0);
 
                         for (int i = 0; i < 10; i++) {
-                            checkColorsHorizontally(i);
                             checkColorsVertically(i);
                         }
                         counter--;
@@ -153,8 +150,6 @@ public class GameScreen extends AppCompatActivity {
 
                     }
                 }
-                mp.stop();
-                mp.reset();
             }
         });
 
@@ -171,10 +166,9 @@ public class GameScreen extends AppCompatActivity {
                         if (vibratePref) {
                             vibrator.vibrate(50);
                         }
-                        mp.start();
+                        checkColorsHorizontally(0);
 
                         for (int i = 0; i < 10; i++) {
-                            checkColorsHorizontally(i);
                             checkColorsVertically(i);
                         }
                         counter--;
@@ -190,8 +184,6 @@ public class GameScreen extends AppCompatActivity {
                         updateView();
                     }
                 }
-                mp.stop();
-                mp.reset();
             }
         });
 
@@ -208,10 +200,9 @@ public class GameScreen extends AppCompatActivity {
                         if (vibratePref) {
                             vibrator.vibrate(50);
                         }
-                        mp.start();
+                        checkColorsHorizontally(0);
 
                         for (int i = 0; i < 10; i++) {
-                            checkColorsHorizontally(i);
                             checkColorsVertically(i);
                         }
                         counter--;
@@ -226,8 +217,6 @@ public class GameScreen extends AppCompatActivity {
                         updateView();
                     }
                 }
-                mp.stop();
-                mp.reset();
             }
         });
 
@@ -244,10 +233,9 @@ public class GameScreen extends AppCompatActivity {
                         if (vibratePref) {
                             vibrator.vibrate(50);
                         }
-                        mp.start();
+                        checkColorsHorizontally(0);
 
                         for (int i = 0; i < 10; i++) {
-                            checkColorsHorizontally(i);
                             checkColorsVertically(i);
                         }
                         counter--;
@@ -262,8 +250,6 @@ public class GameScreen extends AppCompatActivity {
                         updateView();
                     }
                 }
-                mp.stop();
-                mp.reset();
             }
         });
 
@@ -279,8 +265,8 @@ public class GameScreen extends AppCompatActivity {
     public void checkColorsHorizontally(int box) {
         if (imageAdapter.mThumbIds[0].equals(imageAdapter.mThumbIds[box])) {
             matchedBoxes.add(box);
-            box += 1;
-            if (box == 10) {
+            box++;
+            if (box >= 10) {
                 return;
             }
             deleteRepeated();
@@ -340,4 +326,5 @@ public class GameScreen extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
+
 }

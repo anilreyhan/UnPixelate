@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "882669974870-8552pt375rt5pclkeang3u4q3ec7sq95.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anilreyhan.unpixelate",
+            "certificate_hash": "147d89416a0ab1d4b09db821e61aa7ce3654745f"
+          }
+        },
+        {
           "client_id": "882669974870-j8cui2oj03beut78vmb06iak3h81rpb8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
