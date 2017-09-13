@@ -9,7 +9,7 @@
 
 
     <translate
-        android:duration="300"
+        android:duration="5000"
         android:startOffset="300"
         android:fromYDelta="100%p"
         android:toYDelta="20%p"
@@ -18,20 +18,22 @@
 
     <translate
 
-        android:duration="1000"
+        android:duration="5000"
         android:startOffset="600"
         android:fromYDelta="20%p"
         android:toYDelta="-20%p"
         >
     </translate>
 
+
     <translate
-        android:duration="300"
+        android:duration="5000"
         android:startOffset="1600"
         android:fromYDelta="-20%p"
         android:toYDelta="-100%p"
         >
     </translate>
+
 
 
 </set>

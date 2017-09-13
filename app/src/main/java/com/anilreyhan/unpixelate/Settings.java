@@ -13,6 +13,7 @@ import org.w3c.dom.Text;
 public class Settings extends AppCompatActivity {
     CheckBox soundCB, vibrationCB;
     GameScreen gameScreen;
+    Preferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,13 +24,14 @@ public class Settings extends AppCompatActivity {
         vibrationCB = (CheckBox) findViewById(R.id.vibrationCheckBox);
 
         gameScreen = new GameScreen();
+        preferences = new Preferences();
 
 
 
         vibrationCB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                gameScreen.vibratePref = vibrationCB.isChecked();
+                preferences.vibration = vibrationCB.isChecked();
 
             }
         });
@@ -37,6 +39,7 @@ public class Settings extends AppCompatActivity {
         soundCB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                preferences.sound = soundCB.isChecked();
 
             }
         });

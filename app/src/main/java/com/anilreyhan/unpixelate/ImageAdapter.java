@@ -49,9 +49,9 @@ public class ImageAdapter extends BaseAdapter {
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams((int) (screenWidth / 10.5), screenHeight / 19));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setLayoutParams(new GridView.LayoutParams( (int)(screenWidth / 10.5), screenHeight / 20));
             imageView.setPadding(0, 0, 0, 0);
+            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         } else {
             imageView = (ImageView) convertView;
         }
@@ -109,7 +109,7 @@ public class ImageAdapter extends BaseAdapter {
             color = R.color.yellow;
         }
 
-        System.out.println(a);
+        //System.out.println(a);
 
         return color;
 

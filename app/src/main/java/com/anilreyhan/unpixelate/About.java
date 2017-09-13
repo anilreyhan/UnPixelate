@@ -39,46 +39,23 @@ public class About extends AppCompatActivity {
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-                mp.start();
+                //mp.start();
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
 
 
-                Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.index_enterance);
-                img.setImageResource(R.drawable.about_aar);
-
-                img.setAnimation(animation2);
-
-                animation2.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
 
                         startActivity(intent);
                         finish();
                         mp.release();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-
 
 
             }
 
             @Override
             public void onAnimationRepeat(Animation animation) {
-
-
 
             }
         });

@@ -1,6 +1,7 @@
 
 package com.anilreyhan.unpixelate;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
@@ -25,27 +26,32 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class GameScreen extends AppCompatActivity {
+public class GameScreen extends Activity {
 
-    ImageButton backButton, blueButton, greenButton, cyanButton, redButton, yellowButton;
+    ImageButton blueButton, greenButton, cyanButton, redButton, yellowButton;
     TextView movesLeft;
     int counter = 20;
     ImageAdapter imageAdapter;
     public ArrayList<Integer> matchedBoxes = new ArrayList<>(100);
     int lastColor;
     Vibrator vibrator;
-    boolean vibratePref = true;
-
+    boolean vibratePref;
+    public static int selected = 0;
+    static boolean[][] checkTable;
+    Preferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
 
+        preferences = new Preferences();
+
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        vibratePref = preferences.vibration;
 
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
@@ -60,8 +66,10 @@ public class GameScreen extends AppCompatActivity {
         GridView gridview = (GridView) findViewById(R.id.gameLayout);
         gridview.setAdapter(imageAdapter);
 
+        int[][] numberList;
+        numberList = turnMulti();
+        checkTable = checkColors(numberList);
 
-        backButton = (ImageButton) findViewById(R.id.backButton);
         blueButton = (ImageButton) findViewById(R.id.blueButton);
         greenButton = (ImageButton) findViewById(R.id.greenButton);
         cyanButton = (ImageButton) findViewById(R.id.cyanButton);
@@ -71,12 +79,7 @@ public class GameScreen extends AppCompatActivity {
 
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
+
         matchedBoxes.clear();
         updateLastColor();
         blueButton.setOnClickListener(new View.OnClickListener() {
@@ -91,11 +94,17 @@ public class GameScreen extends AppCompatActivity {
                             vibrator.vibrate(50);
                         }
 
-                        checkColorsHorizontally(0);
+                       /* checkColorsHorizontally(0);
 
                         for (int i = 0; i < 10; i++) {
                             checkColorsVertically(i);
-                        }
+                        }*/
+
+                        int[][] numberList;
+                        numberList = turnMulti();
+                        numberList = changeIt(R.color.blue, numberList, checkTable);
+                        checkTable = checkColors(numberList);
+                        turnOne(numberList);
 
                         counter--;
                         movesLeft.setText("Moves Left " + String.valueOf(counter));
@@ -114,6 +123,7 @@ public class GameScreen extends AppCompatActivity {
                         updateView();
                     }
                 }
+                checkWin();
             }
         });
 
@@ -130,11 +140,18 @@ public class GameScreen extends AppCompatActivity {
                         if (vibratePref) {
                             vibrator.vibrate(50);
                         }
-                        checkColorsHorizontally(0);
+                       /* checkColorsHorizontally(0);
 
                         for (int i = 0; i < 10; i++) {
                             checkColorsVertically(i);
-                        }
+                        }*/
+
+                        int[][] numberList;
+                        numberList = turnMulti();
+                        numberList = changeIt(R.color.green, numberList, checkTable);
+                        checkTable = checkColors(numberList);
+                        turnOne(numberList);
+
                         counter--;
                         movesLeft.setText("Moves Left " + String.valueOf(counter));
                         imageAdapter.mThumbIds[0] = R.color.green;
@@ -150,6 +167,7 @@ public class GameScreen extends AppCompatActivity {
 
                     }
                 }
+                checkWin();
             }
         });
 
@@ -166,11 +184,19 @@ public class GameScreen extends AppCompatActivity {
                         if (vibratePref) {
                             vibrator.vibrate(50);
                         }
-                        checkColorsHorizontally(0);
+                        /* checkColorsHorizontally(0);
 
                         for (int i = 0; i < 10; i++) {
                             checkColorsVertically(i);
-                        }
+                        }*/
+
+
+                        int[][] numberList;
+                        numberList = turnMulti();
+                        numberList = changeIt(R.color.cyan, numberList, checkTable);
+                        checkTable = checkColors(numberList);
+                        turnOne(numberList);
+
                         counter--;
                         movesLeft.setText("Moves Left " + String.valueOf(counter));
                         imageAdapter.mThumbIds[0] = R.color.cyan;
@@ -184,6 +210,7 @@ public class GameScreen extends AppCompatActivity {
                         updateView();
                     }
                 }
+                checkWin();
             }
         });
 
@@ -200,23 +227,28 @@ public class GameScreen extends AppCompatActivity {
                         if (vibratePref) {
                             vibrator.vibrate(50);
                         }
-                        checkColorsHorizontally(0);
+                        /* checkColorsHorizontally(0);
 
                         for (int i = 0; i < 10; i++) {
                             checkColorsVertically(i);
-                        }
+                        }*/
+                        int[][] numberList;
+                        numberList = turnMulti();
+                        numberList = changeIt(R.color.red, numberList, checkTable);
+                        checkTable = checkColors(numberList);
+                        turnOne(numberList);
+
                         counter--;
                         movesLeft.setText("Moves Left " + String.valueOf(counter));
                         imageAdapter.mThumbIds[0] = R.color.red;
                         for (int i = 0; i < matchedBoxes.size(); i++) {
-
                             imageAdapter.mThumbIds[matchedBoxes.get(i)] = R.color.red;
-
                         }
                         lastColor = 4;
                         updateView();
                     }
                 }
+                checkWin();
             }
         });
 
@@ -233,11 +265,17 @@ public class GameScreen extends AppCompatActivity {
                         if (vibratePref) {
                             vibrator.vibrate(50);
                         }
-                        checkColorsHorizontally(0);
+                        /* checkColorsHorizontally(0);
 
                         for (int i = 0; i < 10; i++) {
                             checkColorsVertically(i);
-                        }
+                        }*/
+                        int[][] numberList;
+                        numberList = turnMulti();
+                        numberList = changeIt(R.color.yellow, numberList, checkTable);
+                        checkTable = checkColors(numberList);
+                        turnOne(numberList);
+
                         counter--;
                         movesLeft.setText("Moves Left " + String.valueOf(counter));
                         imageAdapter.mThumbIds[0] = R.color.yellow;
@@ -250,6 +288,7 @@ public class GameScreen extends AppCompatActivity {
                         updateView();
                     }
                 }
+                checkWin();
             }
         });
 
@@ -259,7 +298,7 @@ public class GameScreen extends AppCompatActivity {
 
     public boolean checkNumberOfMoves() {
         return false;
-        //   return counter <= 0;
+        //  return counter <= 0;
     }
 
     public void checkColorsHorizontally(int box) {
@@ -275,6 +314,7 @@ public class GameScreen extends AppCompatActivity {
     }
 
     public void checkColorsVertically(int box) {
+
         if (imageAdapter.mThumbIds[0].equals(imageAdapter.mThumbIds[box])) {
             matchedBoxes.add(box);
             box += 10;
@@ -287,10 +327,79 @@ public class GameScreen extends AppCompatActivity {
     }
 
 
-    public void checkColors(int box) {
+    public boolean[][] checkColors(int[][] numbers) {
+        boolean[][] checkingNumbers = new boolean[10][10];
+        numbers = turnMulti();
+        selected = numbers[0][0];
 
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                checkingNumbers[i][j] = false;
+            }
+        }
 
+        selected = numbers[0][0];
+        int endingNum = 0;
+        for (int i = 0; i < 10; i++) {
+            if (numbers[0][i] == selected) {
+                endingNum = i + 1;
+            } else
+                break;
+
+        }
+
+        for (int i = 0; i < endingNum; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (numbers[j][i] == selected) {
+                    checkingNumbers[j][i] = true;
+                } else {
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (checkingNumbers[i][j]) {
+                    if (j != 9) {
+                        if (numbers[i][j + 1] == selected) {
+                            checkingNumbers[i][j + 1] = true;
+                        }
+                    }
+                    if (j != 0) {
+                        if (numbers[i][j - 1] == selected) {
+                            checkingNumbers[i][j - 1] = true;
+                        }
+                    }
+                    if (i != 0) {
+                        if (numbers[i - 1][j] == selected) {
+                            checkingNumbers[i - 1][j] = true;
+                        }
+                    }
+                    if (i != 9) {
+                        if (numbers[i + 1][j] == selected) {
+                            checkingNumbers[i + 1][j] = true;
+                        }
+                    }
+                }
+            }
+        }
+        return checkingNumbers;
     }
+
+    public static int[][] changeIt(int x, int[][] numbers, boolean[][] checkList) {
+
+
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (checkList[i][j]) {
+                    numbers[i][j] = x;
+                }
+            }
+        }
+        return numbers;
+    }
+
 
     public void updateView() {
         imageAdapter.notifyDataSetChanged();
@@ -326,5 +435,49 @@ public class GameScreen extends AppCompatActivity {
         super.onBackPressed();
         finish();
     }
+
+
+    public void checkWin() {
+        if (checkWin_()) {
+            Toast.makeText(getApplicationContext(), "You Win!", Toast.LENGTH_SHORT).show();
+            onBackPressed();
+        }
+    }
+
+    public boolean checkWin_() {
+        int a = 0;
+        for (int i = 0; i < imageAdapter.mThumbIds.length; i++) {
+            if (imageAdapter.mThumbIds[i].equals(imageAdapter.mThumbIds[0])) {
+                a++;
+            }
+        }
+        return a == 100;
+
+    }
+
+    public int[][] turnMulti() {
+        int count = 0;
+        int[][] multiArray = new int[10][10];
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                multiArray[i][j] = imageAdapter.mThumbIds[count];
+                count++;
+            }
+        }
+        return multiArray;
+    }
+
+    public void turnOne(int[][] multiArray) {
+        int count = 0;
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                imageAdapter.mThumbIds[count] = multiArray[i][j];
+                count++;
+            }
+        }
+
+    }
+
 
 }
