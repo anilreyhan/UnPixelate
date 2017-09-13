@@ -92,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.action_about) {
             Intent i = new Intent(getApplicationContext(), About.class);
             startActivity(i);
+        } else if (id == R.id.action_trial) {
+            Intent i = new Intent(getApplicationContext(), GameOver.class);
+            startActivity(i);
         }
 
 
