@@ -5,7 +5,9 @@
 
 
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="1" app:showAsAction="never" />
+        android:orderInCategory="1" app:showAsAction="never"
+        android:icon="@drawable/settings_img"
+        />
 
     <item android:id="@+id/action_feedback" android:title="@string/action_feedback"
         android:orderInCategory="2" app:showAsAction="never" />

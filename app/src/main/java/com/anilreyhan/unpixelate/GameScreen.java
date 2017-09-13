@@ -85,7 +85,7 @@ public class GameScreen extends Activity {
                     Toast.makeText(GameScreen.this, "No more moves left!", Toast.LENGTH_SHORT).show();
                 } else {
                     if (lastColor == 1) {
-                        Toast.makeText(GameScreen.this, "Why are you wasting your lives?", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GameScreen.this, "Why are you wasting your moves?", Toast.LENGTH_SHORT).show();
                     } else {
                         if (vibratePref) {
                             vibrator.vibrate(50);
@@ -104,7 +104,7 @@ public class GameScreen extends Activity {
                         turnOne(numberList);
 
                         counter--;
-                        movesLeft.setText("Moves Left " + String.valueOf(counter));
+                        movesLeft.setText(getString(R.string.numberOfMoves,counter));
                         imageAdapter.mThumbIds[0] = R.color.blue;
 
 
@@ -133,7 +133,7 @@ public class GameScreen extends Activity {
                     Toast.makeText(GameScreen.this, "No more moves left!", Toast.LENGTH_SHORT).show();
                 } else {
                     if (lastColor == 2) {
-                        Toast.makeText(GameScreen.this, "Why are you wasting your lives?", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GameScreen.this, "Why are you wasting your moves?", Toast.LENGTH_SHORT).show();
                     } else {
                         if (vibratePref) {
                             vibrator.vibrate(50);
@@ -151,7 +151,7 @@ public class GameScreen extends Activity {
                         turnOne(numberList);
 
                         counter--;
-                        movesLeft.setText("Moves Left " + String.valueOf(counter));
+                        movesLeft.setText(getString(R.string.numberOfMoves,counter));
                         imageAdapter.mThumbIds[0] = R.color.green;
 
                         for (int i = 0; i < matchedBoxes.size(); i++) {
@@ -178,7 +178,7 @@ public class GameScreen extends Activity {
                     Toast.makeText(GameScreen.this, "No more moves left!", Toast.LENGTH_SHORT).show();
                 } else {
                     if (lastColor == 3) {
-                        Toast.makeText(GameScreen.this, "Why are you wasting your lives?", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GameScreen.this, "Why are you wasting your moves?", Toast.LENGTH_SHORT).show();
                     } else {
                         if (vibratePref) {
                             vibrator.vibrate(50);
@@ -197,7 +197,7 @@ public class GameScreen extends Activity {
                         turnOne(numberList);
 
                         counter--;
-                        movesLeft.setText("Moves Left " + String.valueOf(counter));
+                        movesLeft.setText(getString(R.string.numberOfMoves,counter));
                         imageAdapter.mThumbIds[0] = R.color.cyan;
                         for (int i = 0; i < matchedBoxes.size(); i++) {
 
@@ -222,7 +222,7 @@ public class GameScreen extends Activity {
                     Toast.makeText(GameScreen.this, "No more moves left!", Toast.LENGTH_SHORT).show();
                 } else {
                     if (lastColor == 4) {
-                        Toast.makeText(GameScreen.this, "Why are you wasting your lives?", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GameScreen.this, "Why are you wasting your moves?", Toast.LENGTH_SHORT).show();
                     } else {
                         if (vibratePref) {
                             vibrator.vibrate(50);
@@ -239,7 +239,7 @@ public class GameScreen extends Activity {
                         turnOne(numberList);
 
                         counter--;
-                        movesLeft.setText("Moves Left " + String.valueOf(counter));
+                        movesLeft.setText(getString(R.string.numberOfMoves,counter));
                         imageAdapter.mThumbIds[0] = R.color.red;
                         for (int i = 0; i < matchedBoxes.size(); i++) {
                             imageAdapter.mThumbIds[matchedBoxes.get(i)] = R.color.red;
@@ -261,7 +261,7 @@ public class GameScreen extends Activity {
                     Toast.makeText(GameScreen.this, "No more moves left!", Toast.LENGTH_SHORT).show();
                 } else {
                     if (lastColor == 5) {
-                        Toast.makeText(GameScreen.this, "Why are you wasting your lives?", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(GameScreen.this, "Why are you wasting your moves?", Toast.LENGTH_SHORT).show();
                     } else {
                         if (vibratePref) {
                             vibrator.vibrate(50);
@@ -278,7 +278,7 @@ public class GameScreen extends Activity {
                         turnOne(numberList);
 
                         counter--;
-                        movesLeft.setText("Moves Left " + String.valueOf(counter));
+                        movesLeft.setText(getString(R.string.numberOfMoves,counter));
                         imageAdapter.mThumbIds[0] = R.color.yellow;
                         for (int i = 0; i < matchedBoxes.size(); i++) {
 

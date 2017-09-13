@@ -4,8 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.os.Handler;
+import android.view.View;
+import android.widget.ImageView;
 
 public class StartAnimation extends Activity {
 
@@ -22,6 +23,12 @@ public class StartAnimation extends Activity {
 
 
         img = (ImageView) findViewById(R.id.imageView);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
