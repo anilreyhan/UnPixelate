@@ -15,4 +15,9 @@
         <item name="colorAccent">#FFF</item>
     </style>
 
+    <style name="GameOverTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimaryDark">#666</item>
+    </style>
+
 </resources>

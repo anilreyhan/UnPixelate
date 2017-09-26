@@ -22,28 +22,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".GameScreen"
             android:screenOrientation="portrait" />
-        <activity android:name=".GameOver" />
-
+        <activity
+            android:name=".GameOverWin"
+            android:theme="@style/GameOverTheme" />
         <activity
             android:name=".Settings"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".About"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".FeedbackActivity"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".StartAnimation"
             android:screenOrientation="portrait"
             android:theme="@style/AnimationTheme" />
+        <activity
+            android:name=".GameOverLose"
+            android:theme="@style/GameOverTheme" />
+        <activity android:name=".HowTo"></activity>
     </application>
 
 </manifest>

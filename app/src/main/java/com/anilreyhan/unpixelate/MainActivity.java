@@ -1,9 +1,8 @@
 package com.anilreyhan.unpixelate;
 
-import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,16 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    Button startButton;
+    Button startButton,howToButton;
     ImageView banner;
-    Context context;
     static int a = 0;
 
 
@@ -43,10 +40,21 @@ public class MainActivity extends AppCompatActivity {
 
         banner = (ImageView) findViewById(R.id.imageView);
         startButton = (Button) findViewById(R.id.startButton);
+        howToButton = (Button)findViewById(R.id.howToButton);
+
+
 
         //banner.setLayoutParams(new ImageView());
         //Toast.makeText(getApplicationContext(), "Width: " + screen_width + "Height: " + screen_height, Toast.LENGTH_SHORT).show();
 
+
+        howToButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),HowTo.class);
+                startActivity(i);
+            }
+        });
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 
 
     }
@@ -93,7 +100,10 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(getApplicationContext(), About.class);
             startActivity(i);
         } else if (id == R.id.action_trial) {
-            Intent i = new Intent(getApplicationContext(), GameOver.class);
+            Intent i = new Intent(getApplicationContext(), GameOverWin.class);
+            startActivity(i);
+        } else if (id == R.id.action_trial2) {
+            Intent i = new Intent(getApplicationContext(), GameOverLose.class);
             startActivity(i);
         }
 

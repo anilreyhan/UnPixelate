@@ -26,6 +26,13 @@ public class ImageAdapter extends BaseAdapter {
         mContext = c;
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
+        fillArray();
+    }
+
+    private void fillArray() {
+        for(int i=0;i<100;i++){
+            mThumbIds[i]=randomColor();
+        }
     }
 
     @Override
@@ -51,7 +58,7 @@ public class ImageAdapter extends BaseAdapter {
             imageView = new ImageView(mContext);
             imageView.setLayoutParams(new GridView.LayoutParams( (int)(screenWidth / 10.5), screenHeight / 20));
             imageView.setPadding(0, 0, 0, 0);
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            imageView.setScaleType(ImageView.ScaleType.MATRIX);
         } else {
             imageView = (ImageView) convertView;
         }
@@ -61,23 +68,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
 
-    public Integer[] mThumbIds = {
-            randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(),
-            randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(),
-            randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(),
-            randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(),
-            randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(),
-            randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(),
-            randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(),
-            randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(),
-            randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(),
-            randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(), randomColor(),
-
-
-    };
-
-    public ArrayList<Integer> matchedBoxes = new ArrayList<>();
-
+    public Integer[] mThumbIds = new Integer[100];
 
     public int randomColor() {
 
@@ -88,7 +79,6 @@ public class ImageAdapter extends BaseAdapter {
 
         do {
             a = (int) (Math.random() * 6);
-
         }
         while (a <= 0 || a > 5);
 
@@ -113,20 +103,6 @@ public class ImageAdapter extends BaseAdapter {
 
         return color;
 
-
-    }
-
-    public void removeRepeated(ArrayList<Integer> arrayList) {
-
-        if (arrayList.size() > 2) {
-            for (int i = 1; i < arrayList.size(); i++) {
-                int a1 = arrayList.get(i);
-                int a2 = arrayList.get(i - 1);
-                if (a1 == a2) {
-                    arrayList.remove(a1);
-                }
-            }
-        }
 
     }
 
