@@ -7,8 +7,8 @@ android {
         applicationId "com.anilreyhan.unpixelate"
         minSdkVersion 18
         targetSdkVersion 25
-        versionCode 9
-        versionName "2.1"
+        versionCode 10
+        versionName "3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -32,15 +32,5 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:10.0.1'
     testCompile 'junit:junit:4.12'
 }
-
-
-
-
-
-
-
-
-
-
 
 apply plugin: 'com.google.gms.google-services'

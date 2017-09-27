@@ -9,6 +9,7 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Toast;
 
 import com.anilreyhan.unpixelate.R;
 
@@ -66,7 +67,6 @@ public class GameView extends View {
 
         }
 
-
         boxes.get(0).newColor = color;
         boxStack.push(boxes.get(0));
         while (!boxStack.isEmpty()) {
@@ -90,8 +90,19 @@ public class GameView extends View {
             }
         }
 
-        postInvalidate();
 
+        boolean isFinished = true;
+        for (int i = 0; i < size * size; i++) {
+            if (boxes.get(i).color != color) {
+                isFinished = false;
+            }
+        }
+
+        if (isFinished) {
+            Toast.makeText(getContext(), "Win MİB", Toast.LENGTH_LONG).show();
+        }
+
+        postInvalidate();
     }
 
     @Override
@@ -119,36 +130,27 @@ public class GameView extends View {
     }
 
     public void onBlueClicked() {
-
         algorithm(returnColor(R.color.blue));
-
         postInvalidate();
     }
 
     public void onCyanClicked() {
         algorithm(returnColor(R.color.cyan));
-
-
         postInvalidate();
     }
 
     public void onGreenClicked() {
         algorithm(returnColor(R.color.green));
-
-
         postInvalidate();
     }
 
     public void onRedClicked() {
         algorithm(returnColor(R.color.red));
-
-
         postInvalidate();
     }
 
     public void onYellowClicked() {
         algorithm(returnColor(R.color.yellow));
-
         postInvalidate();
     }
 

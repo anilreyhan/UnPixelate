@@ -44,10 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        //banner.setLayoutParams(new ImageView());
-        //Toast.makeText(getApplicationContext(), "Width: " + screen_width + "Height: " + screen_height, Toast.LENGTH_SHORT).show();
-
-
         howToButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,12 +94,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
         } else if (id == R.id.action_about) {
             Intent i = new Intent(getApplicationContext(), About.class);
-            startActivity(i);
-        } else if (id == R.id.action_trial) {
-            Intent i = new Intent(getApplicationContext(), GameOverWin.class);
-            startActivity(i);
-        } else if (id == R.id.action_trial2) {
-            Intent i = new Intent(getApplicationContext(), GameOverLose.class);
             startActivity(i);
         }
 

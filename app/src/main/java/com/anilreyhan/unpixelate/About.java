@@ -27,7 +27,6 @@ public class About extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.intro);
 
 
-        textView = (TextView) findViewById(R.id.aboutScreenText);
         img = (ImageView) findViewById(R.id.imageView);
         aboutScreenLayout = (ConstraintLayout) findViewById(R.id.aboutScreenLayout);
         final Animation animation = AnimationUtils.loadAnimation(this, R.anim.index_enterance);
@@ -39,7 +38,6 @@ public class About extends AppCompatActivity {
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-                //mp.start();
                 textView.setVisibility(View.INVISIBLE);
             }
 
