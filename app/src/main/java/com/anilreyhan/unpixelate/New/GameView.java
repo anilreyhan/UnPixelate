@@ -156,7 +156,7 @@ public class GameView extends View {
 
 
     public ArrayList<Box> getNeighbours(Box box, int color) {
-        ArrayList<Box> neighbours = new ArrayList<Box>();
+        ArrayList<Box> neighbours = new ArrayList<>();
 
         if (box.x - 1 >= 0) {
             Box candidateBox = getBox(box.x - 1, box.y);

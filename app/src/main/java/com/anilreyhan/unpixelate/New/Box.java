@@ -4,9 +4,6 @@ package com.anilreyhan.unpixelate.New;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-/**
- * Created by anilreyhan on 26.09.2017.
- */
 
 public class Box  {
 
