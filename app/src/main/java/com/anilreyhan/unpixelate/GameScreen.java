@@ -3,10 +3,8 @@ package com.anilreyhan.unpixelate;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.view.Display;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.ImageButton;
@@ -25,13 +23,10 @@ public class GameScreen extends Activity {
     ImageButton blueButton, greenButton, cyanButton, redButton, yellowButton;
     TextView movesLeft;
     int counter = 20;
-
     public ArrayList<Integer> matchedBoxes = new ArrayList<>(100);
     int lastColor;
     Vibrator vibrator;
     boolean vibratePref;
-    public static int selected = 0;
-    static boolean[][] checkTable;
     Preferences preferences;
     GameView gameView;
 
@@ -48,14 +43,6 @@ public class GameScreen extends Activity {
         gameView = (GameView) findViewById(R.id.gameLayout);
 
         vibratePref = preferences.vibration;
-
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getSize(size);
-        int width = size.x;
-        int height = size.y;
-
-        //Toast.makeText(getApplicationContext(), "W: " + width + " -- H: " + height, Toast.LENGTH_SHORT).show();
 
 
         blueButton = (ImageButton) findViewById(R.id.blueButton);
