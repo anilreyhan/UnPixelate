@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class About extends AppCompatActivity {
 
-    TextView textView;
+
     ImageView img;
     MediaPlayer mp;
     ConstraintLayout aboutScreenLayout;
@@ -38,14 +38,12 @@ public class About extends AppCompatActivity {
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-                textView.setVisibility(View.INVISIBLE);
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
 
                 img.setVisibility(View.INVISIBLE);
-                textView.setVisibility(View.VISIBLE);
 
                 mp.release();
 

@@ -21,6 +21,10 @@
     <string name="numberOfMoves">%d hamleniz kaldı!</string>
     <string name="buttonStartHowTo">Hazırım, oynayalım!</string>
     <string name="howToImage">How to image</string>
+    <string name="vibration">Titreşim</string>
+    <string name="difficulty">Zorluk</string>
+
+
 
     <string name="youWinButton">Geri</string>
     <string name="howToString">Oyun ekranının altındaki butonları kullanarak karışık renklere \n

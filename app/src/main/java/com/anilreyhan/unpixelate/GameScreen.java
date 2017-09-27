@@ -27,7 +27,6 @@ public class GameScreen extends Activity {
     int lastColor;
     Vibrator vibrator;
     boolean vibratePref;
-    Preferences preferences;
     GameView gameView;
 
 
@@ -35,14 +34,12 @@ public class GameScreen extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
-        preferences = new Preferences();
 
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
         gameView = (GameView) findViewById(R.id.gameLayout);
 
-        vibratePref = preferences.vibration;
 
 
         blueButton = (ImageButton) findViewById(R.id.blueButton);
