@@ -1,8 +1,8 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?><resources>
     <string name="app_name">UnPixelate</string>
 
     <string name="title_activity_game_screen">UnPixelate</string>
-    <string name="movesLabel">You have 20 moves left!</string>
+    <string name="movesLabel">You have %d moves!</string>
     <string name="cyanButton">Cyan Button</string>
     <string name="greenButton">Green Button</string>
     <string name="redButton">Red Button</string>
@@ -22,6 +22,8 @@
     <string name="howToImage">How to image</string>
     <string name="vibration">Vibration</string>
     <string name="difficulty">Difficulty</string>
+    <string name="wasteMoves">Why are you wasting your moves?</string>
+    <string name="noMoreMoves">No more moves left!</string>
 
 
     <string name="youWinButton">Back</string>
@@ -30,11 +32,20 @@
         color and UnPixelate the pixelated view! \n
         Do not forget, you have limited amount of moves! </string>
 
+    <string name="settingsPopUp">Settings</string>
+
+    <string name="youWinToast">Congratulations, you win!!</string>
+    <string name="youLostToast">You lost, not surprising!!..</string>
+
+
+
+
     <string name="title_send_feedback">Send Feedback</string>
     <string name="mail_feedback_email">anilreyhan@gmail.com</string>
     <string name="mail_feedback_subject">Feedback about UnPixelate</string>
     <string name="mail_feedback_message">Hi,\n\nPerfect game! But I have some feedbacks!\n \n \n</string>
     <string name="youLostButton">Back</string>
+    <string name="feedbackToast">Please send your feedback via email.</string>
 
     <string-array name="difficulty_array">
         <item>Easy</item>

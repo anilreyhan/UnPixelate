@@ -2,15 +2,20 @@ package com.anilreyhan.unpixelate.New;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
+import com.anilreyhan.unpixelate.GameScreen;
 import com.anilreyhan.unpixelate.R;
 
 import java.util.ArrayList;
@@ -19,29 +24,92 @@ import java.util.Stack;
 
 public class GameView extends View {
 
-    int size = 10;
+    public int size;
     Paint paint;
     public ArrayList<Box> boxes = null;
+    public GameScreen gameScreen;
+    SharedPreferences preferences;
+    public static int x_offset = 0;
+
+
+    public void setActivity(GameScreen gameScreen_){
+
+       this.gameScreen = gameScreen_;
+
+    }
+
 
     public GameView(Context context) {
         super(context);
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        switch (preferences.getInt("difficulty", 2)) {
+            case 1:
+                size = 5;
+                break;
+            case 2:
+                size = 10;
+                break;
+            case 3:
+                size = 15;
+                break;
+        }
         init(null);
     }
 
     public GameView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        switch (preferences.getInt("difficulty", 2)) {
+            case 1:
+                size = 5;
+                break;
+            case 2:
+                size = 10;
+                break;
+            case 3:
+                size = 15;
+                break;
+        }
         init(attrs);
 
     }
 
     public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        switch (preferences.getInt("difficulty", 2)) {
+            case 1:
+                size = 5;
+                break;
+            case 2:
+                size = 10;
+                break;
+            case 3:
+                size = 15;
+                break;
+        }
         init(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public GameView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        gameScreen = new GameScreen();
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        switch (preferences.getInt("difficulty", 2)) {
+            case 1:
+                size = 5;
+                break;
+            case 2:
+                size = 10;
+                break;
+            case 3:
+                size = 15;
+                break;
+        }
         init(attrs);
     }
 
@@ -90,7 +158,6 @@ public class GameView extends View {
             }
         }
 
-
         boolean isFinished = true;
         for (int i = 0; i < size * size; i++) {
             if (boxes.get(i).color != color) {
@@ -99,9 +166,14 @@ public class GameView extends View {
         }
 
         if (isFinished) {
-            Toast.makeText(getContext(), "Win MİB", Toast.LENGTH_LONG).show();
-        }
+            Toast.makeText(gameScreen.getApplicationContext(), R.string.youWinToast, Toast.LENGTH_LONG).show();
+            //onBlueClicked();
+            winAnim(this);
+            gameScreen.gameFinished();
+            /// preferences.edit().putBoolean("finished", true).apply();
+            //gameScreen.onBackPressed();
 
+        }
         postInvalidate();
     }
 
@@ -123,35 +195,33 @@ public class GameView extends View {
             boxes = new ArrayList<>();
 
             for (int i = 0; i < size * size; i++) {
-                boxes.add(new Box(i, i % size, i / size, getContext().getResources().getColor(randomColor()), parentWidth / size));
+                boxes.add(new Box(i, i % size, i / size, getContext().getResources().getColor(randomColor()), parentHeight / size));
             }
         }
+
+        x_offset = (parentWidth - (parentHeight))/2;
+
         postInvalidate();
     }
 
     public void onBlueClicked() {
         algorithm(returnColor(R.color.blue));
-        postInvalidate();
     }
 
     public void onCyanClicked() {
         algorithm(returnColor(R.color.cyan));
-        postInvalidate();
     }
 
     public void onGreenClicked() {
         algorithm(returnColor(R.color.green));
-        postInvalidate();
     }
 
     public void onRedClicked() {
         algorithm(returnColor(R.color.red));
-        postInvalidate();
     }
 
     public void onYellowClicked() {
         algorithm(returnColor(R.color.yellow));
-        postInvalidate();
     }
 
 
@@ -235,6 +305,15 @@ public class GameView extends View {
 
 
     }
+
+    public void winAnim(View view) {
+        Animation animation1 =
+                AnimationUtils.loadAnimation(getContext(),
+                        R.anim.win_animation);
+        view.startAnimation(animation1);
+    }
+
+
 }
 
 

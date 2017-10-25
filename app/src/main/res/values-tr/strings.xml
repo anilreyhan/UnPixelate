@@ -1,8 +1,8 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?><resources>
     <string name="app_name">UnPixelate</string>
 
     <string name="title_activity_game_screen">UnPixelate</string>
-    <string name="movesLabel">20 hamleniz kaldı!</string>
+    <string name="movesLabel">%d hamleniz var!</string>
     <string name="cyanButton">Cyan Button</string>
     <string name="greenButton">Green Button</string>
     <string name="redButton">Red Button</string>
@@ -14,7 +14,6 @@
     <string name="howToButton">Nasıl Oynanır?</string>
     <string name="title_activity_settings">Ayarlar</string>
     <string name="banner_ad_unit_id">ca-app-pub-4253179676056693/1503619483</string>
-    <string name="vibrationPref">y</string>
     <string name="action_settings">Ayarlar</string>
     <string name="action_feedback">Geri bildirim</string>
     <string name="action_about">Hakkında</string>
@@ -23,8 +22,16 @@
     <string name="howToImage">How to image</string>
     <string name="vibration">Titreşim</string>
     <string name="difficulty">Zorluk</string>
+    <string name="wasteMoves">Neden hamlelerini harcıyorsun?</string>
+    <string name="noMoreMoves">Hamlen kalmadı ki!</string>
 
 
+    <string name="youWinToast">Tebrikler, kazandın!!</string>
+    <string name="youLostToast">Kaybettin, neden şaşırmadım acaba!!..</string>
+
+
+
+    <string name="settingsPopUp">Ayarlar</string>
 
     <string name="youWinButton">Geri</string>
     <string name="howToString">Oyun ekranının altındaki butonları kullanarak karışık renklere \n
@@ -36,6 +43,7 @@
     <string name="mail_feedback_subject">UnPixelate hakkında geribildirim</string>
     <string name="mail_feedback_message">Selam,\n\nOyun mükemmel! Ama birkaç öneri de benden!\n \n \n</string>
     <string name="youLostButton">Geri</string>
+    <string name="feedbackToast">Lütfen geri bildirim için email kullanınız.</string>
 
     <string-array name="difficulty_array">
         <item>Kolay</item>

@@ -23,6 +23,7 @@ public class HowTo extends Activity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GameScreen.class);
                 startActivity(i);
+                finish();
             }
         });
 

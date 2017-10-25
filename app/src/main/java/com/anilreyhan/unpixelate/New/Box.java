@@ -27,7 +27,7 @@ public class Box  {
 
     public void draw(Canvas canvas, Paint paint) {
         paint.setColor(this.color);
-        canvas.drawRect(x*boxSize,y*boxSize,(x+1)*boxSize,(y+1)*boxSize,paint);
+        canvas.drawRect(x*boxSize+GameView.x_offset,y*boxSize,(x+1)*boxSize+GameView.x_offset,(y+1)*boxSize,paint);
 
 
 

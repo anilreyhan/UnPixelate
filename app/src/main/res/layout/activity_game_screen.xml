@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.anilreyhan.unpixelate.GameScreen">
+    tools:context="com.anilreyhan.unpixelate.GameScreen"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +44,8 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/blueButton"
-                android:src="@color/blue" />
+                android:src="@color/blue"
+                android:clickable="true"/>
 
             <ImageButton
                 android:id="@+id/cyanButton"
@@ -53,7 +55,8 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/cyanButton"
-                android:src="@color/cyan" />
+                android:src="@color/cyan"
+                android:clickable="true"/>
 
             <ImageButton
                 android:id="@+id/greenButton"
@@ -63,7 +66,8 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/greenButton"
-                android:src="@color/green" />
+                android:src="@color/green"
+                android:clickable="true" />
 
             <ImageButton
                 android:id="@+id/redButton"
@@ -73,7 +77,8 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/redButton"
-                android:src="@color/red" />
+                android:src="@color/red"
+                android:clickable="true" />
 
             <ImageButton
                 android:id="@+id/yellowButton"
@@ -83,7 +88,8 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:contentDescription="@string/yellowButton"
-                android:src="@color/yellow" />
+                android:src="@color/yellow"
+                android:clickable="true" />
 
 
         </LinearLayout>
