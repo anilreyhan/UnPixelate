@@ -27,14 +27,16 @@
 
 
     <string name="youWinToast">Tebrikler, kazandın!!</string>
-    <string name="youLostToast">Kaybettin, neden şaşırmadım acaba!!..</string>
+    <string name="youLostToast">Kaybettin, bir dahaki sefere artık :/ </string>
 
+    <string name="deleteProgressBtn">İlerlemeyi sil.</string>
+    <string name="deleteProgress">Tamam, senin için temiz bir sayfa açıldı!</string>
 
 
     <string name="settingsPopUp">Ayarlar</string>
 
     <string name="youWinButton">Geri</string>
-    <string name="howToString">Oyun ekranının altındaki butonları kullanarak karışık renklere \n
+    <string name="howToString">Oyun ekranının altındaki butonları kullanarak karışık renklere
         sahip olan oyun ekranını tek renk yapmaya çalış! \n
         Unutma, sol üst kare senin!</string>
 

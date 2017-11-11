@@ -3,6 +3,7 @@ package com.anilreyhan.unpixelate;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -28,14 +29,15 @@ public class GameScreen extends Activity {
     boolean vibratePref;
     public GameView gameView;
     public InterstitialAd mInterstitialAd;
-
-
+    Settings settings;
+int movesCounter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
+        settings = new Settings();
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
@@ -74,7 +76,10 @@ public class GameScreen extends Activity {
 
 
         gameView = (GameView) findViewById(R.id.gameLayout);
+
         gameView.setActivity(this);
+
+        movesCounter = preferences.getInt("movesLeft", 0);
 
         blueButton = (ImageButton) findViewById(R.id.blueButton);
         greenButton = (ImageButton) findViewById(R.id.greenButton);
@@ -85,17 +90,25 @@ public class GameScreen extends Activity {
 
 
         vibratePref = preferences.getBoolean("vibrate", true);
-        switch (preferences.getInt("difficulty", 2)) {
-            case 1:
-                counter = 10;
-                break;
-            case 2:
-                counter = 20;
-                break;
-            case 3:
-                counter = 30;
-                break;
+
+        if (preferences.getBoolean("freshStart", false)) {
+
+            switch (preferences.getInt("difficulty", 2)) {
+                case 1:
+                    counter = 10;
+                    break;
+                case 2:
+                    counter = 16;
+                    break;
+                case 3:
+                    counter = 24;
+                    break;
+            }
+
+        } else {
+            counter = movesCounter + (int) (preferences.getInt("progress", 10) * (1.6));
         }
+
 
         movesLeft.setText(getString(R.string.numberOfMoves, counter));
 
@@ -104,6 +117,9 @@ public class GameScreen extends Activity {
             public void onClick(View view) {
                 if (checkNumberOfMoves()) {
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
+                    settings.deleteProgress(preferences);
+                    preferences.edit().putBoolean("freshStart", true).apply();
+
                     mInterstitialAd.show();
 
                 } else {
@@ -132,6 +148,9 @@ public class GameScreen extends Activity {
 
                 if (checkNumberOfMoves()) {
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
+                    settings.deleteProgress(preferences);
+                    preferences.edit().putBoolean("freshStart", true).apply();
+
                     mInterstitialAd.show();
 
                 } else {
@@ -158,6 +177,9 @@ public class GameScreen extends Activity {
                 if (checkNumberOfMoves()) {
 
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
+                    settings.deleteProgress(preferences);
+                    preferences.edit().putBoolean("freshStart", true).apply();
+
                     mInterstitialAd.show();
 
 
@@ -186,6 +208,9 @@ public class GameScreen extends Activity {
             public void onClick(View view) {
                 if (checkNumberOfMoves()) {
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
+                    settings.deleteProgress(preferences);
+                    preferences.edit().putBoolean("freshStart", true).apply();
+
                     mInterstitialAd.show();
 
                 } else {
@@ -213,7 +238,10 @@ public class GameScreen extends Activity {
             public void onClick(View view) {
                 if (checkNumberOfMoves()) {
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
+                    settings.deleteProgress(preferences);
+                    preferences.edit().putBoolean("freshStart", true).apply();
                     mInterstitialAd.show();
+
 
                 } else {
                     if (lastColor == 5) {
@@ -241,6 +269,7 @@ public class GameScreen extends Activity {
     public boolean checkNumberOfMoves() {
         //return false;
         return counter <= 0;
+
     }
 
 
@@ -250,13 +279,18 @@ public class GameScreen extends Activity {
         finish();
     }
 
-    public void gameFinished() {
+    public void gameFinished(SharedPreferences preferences) {
+        preferences.edit().putInt("movesLeft",10).apply();
         yellowButton.setEnabled(false);
         redButton.setEnabled(false);
         greenButton.setEnabled(false);
         cyanButton.setEnabled(false);
         blueButton.setEnabled(false);
-        mInterstitialAd.show();
+        //mInterstitialAd.show();
+        Intent i = new Intent(getApplicationContext(), WinScreen.class);
+        startActivity(i);
+        onBackPressed();
+
     }
 
 

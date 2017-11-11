@@ -2,6 +2,7 @@ package com.anilreyhan.unpixelate;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -13,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -20,7 +22,10 @@ import android.widget.Toast;
 public class Settings extends Activity implements AdapterView.OnItemSelectedListener {
     CheckBox vibrationCB;
     GameScreen gameScreen;
-
+    Button deleteProgress;
+    public Context getContext() {
+        return getApplicationContext();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,14 +40,38 @@ public class Settings extends Activity implements AdapterView.OnItemSelectedList
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*.7),(int)(height*.3));
+        getWindow().setLayout((int)(width*.7),(int)(height*.5));
         getActionBar().setTitle(R.string.settingsPopUp);
         //getSupportActionBar().setTitle("Hello world App");  // provide compatibility to all the versions
 
         ActionBar bar = getActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.rgb(102,102,102)));
 
+        preferences.edit().putBoolean("freshStart", false).apply();
+
         vibrationCB = (CheckBox) findViewById(R.id.vibrationCheckBox);
+        deleteProgress = (Button)findViewById(R.id.levelsButton);
+
+        deleteProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                switch (preferences.getInt("difficulty", 2)) {
+                    case 1:
+                        preferences.edit().putInt("progress", 5).apply();
+                        break;
+                    case 2:
+                        preferences.edit().putInt("progress", 10).apply();
+                        break;
+                    case 3:
+                        preferences.edit().putInt("progress", 15).apply();
+                        break;
+                }
+
+                Toast.makeText(getApplicationContext(),getString(R.string.deleteProgress),Toast.LENGTH_LONG).show();
+
+            }
+        });
 
         gameScreen = new GameScreen();
 
@@ -88,6 +117,8 @@ public class Settings extends Activity implements AdapterView.OnItemSelectedList
             case 1:
                 spinner.setSelection(0);
                 //Toast.makeText(getApplicationContext()," set Easy",Toast.LENGTH_SHORT).show();
+
+
                 break;
             case 2:
                 spinner.setSelection(1);
@@ -115,14 +146,24 @@ public class Settings extends Activity implements AdapterView.OnItemSelectedList
             case 0:
                 preferences.edit().putInt("difficulty", 1).apply();
                 //Toast.makeText(getApplicationContext(), String.valueOf(position) +"Easy",Toast.LENGTH_SHORT).show();
+
+                preferences.edit().putInt("progress", 5).apply();
+
                 break;
             case 1:
                 preferences.edit().putInt("difficulty", 2).apply();
                 //Toast.makeText(getApplicationContext(), String.valueOf(position) +"Medium",Toast.LENGTH_SHORT).show();
+
+                preferences.edit().putInt("progress", 10).apply();
+
+
                 break;
             case 2:
                 preferences.edit().putInt("difficulty", 3).apply();
                 //Toast.makeText(getApplicationContext(),String.valueOf(position) +"Hard",Toast.LENGTH_SHORT).show();
+
+                preferences.edit().putInt("progress", 15).apply();
+
                 break;
 
         }
@@ -142,6 +183,24 @@ public class Settings extends Activity implements AdapterView.OnItemSelectedList
             finish();
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    public void deleteProgress(SharedPreferences preferences){
+        switch (preferences.getInt("difficulty", 2)) {
+            case 1:
+                preferences.edit().putInt("progress", 5).apply();
+                preferences.edit().putBoolean("freshStart", true).apply();
+                break;
+            case 2:
+                preferences.edit().putInt("progress", 10).apply();
+                preferences.edit().putBoolean("freshStart", true).apply();
+
+                break;
+            case 3:
+                preferences.edit().putInt("progress", 15).apply();
+                preferences.edit().putBoolean("freshStart", true).apply();
+                break;
+        }
     }
 
 }

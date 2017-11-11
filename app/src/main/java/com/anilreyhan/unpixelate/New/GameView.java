@@ -42,17 +42,7 @@ public class GameView extends View {
     public GameView(Context context) {
         super(context);
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        switch (preferences.getInt("difficulty", 2)) {
-            case 1:
-                size = 5;
-                break;
-            case 2:
-                size = 10;
-                break;
-            case 3:
-                size = 15;
-                break;
-        }
+        size = preferences.getInt("progress", 15);
         init(null);
     }
 
@@ -60,17 +50,8 @@ public class GameView extends View {
         super(context, attrs);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        switch (preferences.getInt("difficulty", 2)) {
-            case 1:
-                size = 5;
-                break;
-            case 2:
-                size = 10;
-                break;
-            case 3:
-                size = 15;
-                break;
-        }
+        size = preferences.getInt("progress", 15);
+
         init(attrs);
 
     }
@@ -79,17 +60,8 @@ public class GameView extends View {
         super(context, attrs, defStyleAttr);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        switch (preferences.getInt("difficulty", 2)) {
-            case 1:
-                size = 5;
-                break;
-            case 2:
-                size = 10;
-                break;
-            case 3:
-                size = 15;
-                break;
-        }
+        size = preferences.getInt("progress", 15);
+
         init(attrs);
     }
 
@@ -99,17 +71,8 @@ public class GameView extends View {
         gameScreen = new GameScreen();
 
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        switch (preferences.getInt("difficulty", 2)) {
-            case 1:
-                size = 5;
-                break;
-            case 2:
-                size = 10;
-                break;
-            case 3:
-                size = 15;
-                break;
-        }
+        size = preferences.getInt("progress", 15);
+
         init(attrs);
     }
 
@@ -166,15 +129,23 @@ public class GameView extends View {
         }
 
         if (isFinished) {
-            Toast.makeText(gameScreen.getApplicationContext(), R.string.youWinToast, Toast.LENGTH_LONG).show();
+            //Toast.makeText(gameScreen.getApplicationContext(), R.string.youWinToast, Toast.LENGTH_LONG).show();
             //onBlueClicked();
             winAnim(this);
-            gameScreen.gameFinished();
+            gameScreen.gameFinished(preferences);
             /// preferences.edit().putBoolean("finished", true).apply();
             //gameScreen.onBackPressed();
 
+            preferences.edit().putInt("progress", size + 1).apply();
+            preferences.edit().putBoolean("freshStart", false).apply();
+
         }
         postInvalidate();
+
+
+
+
+
     }
 
     @Override

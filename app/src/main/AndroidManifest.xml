@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anilreyhan.unpixelate">
 
-    <uses-permission android:name="android.permission.VIBRATE" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,7 +28,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/SettingsPopUp" />
         <activity
-
             android:name=".About"
             android:screenOrientation="portrait" />
         <activity
@@ -40,9 +37,8 @@
             android:name=".StartAnimation"
             android:screenOrientation="portrait"
             android:theme="@style/AnimationTheme" />
-        <activity android:name=".HowTo">
-
-        </activity>
+        <activity android:name=".HowTo" />
+        <activity android:name=".WinScreen"></activity>
     </application>
 
 </manifest>
