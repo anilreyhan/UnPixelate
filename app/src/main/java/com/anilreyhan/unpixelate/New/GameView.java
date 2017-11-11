@@ -168,6 +168,7 @@ public class GameView extends View {
             for (int i = 0; i < size * size; i++) {
                 boxes.add(new Box(i, i % size, i / size, getContext().getResources().getColor(randomColor()), parentHeight / size));
             }
+            //
         }
 
         x_offset = (parentWidth - (parentHeight))/2;
