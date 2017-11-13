@@ -30,7 +30,7 @@ public class GameScreen extends Activity {
     public GameView gameView;
     public InterstitialAd mInterstitialAd;
     Settings settings;
-int movesCounter;
+    int movesCounter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
