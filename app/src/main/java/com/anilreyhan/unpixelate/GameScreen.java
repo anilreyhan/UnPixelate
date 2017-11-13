@@ -31,6 +31,7 @@ public class GameScreen extends Activity {
     public InterstitialAd mInterstitialAd;
     Settings settings;
     int movesCounter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,7 +107,17 @@ public class GameScreen extends Activity {
             }
 
         } else {
-            counter = movesCounter + (int) (preferences.getInt("progress", 10) * (1.6));
+            switch (preferences.getInt("difficulty", 2)) {
+                case 1:
+                    counter = movesCounter + (int) (preferences.getInt("progress", 0) * (2));
+                    break;
+                case 2:
+                    counter = movesCounter + (int) (preferences.getInt("progress", 0) * (1.8));
+                    break;
+                case 3:
+                    counter = movesCounter + (int) (preferences.getInt("progress", 0) * (1.6));
+                    break;
+            }
         }
 
 
@@ -119,6 +130,7 @@ public class GameScreen extends Activity {
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
                     settings.deleteProgress(preferences);
                     preferences.edit().putBoolean("freshStart", true).apply();
+                    preferences.edit().putInt("movesLeft", 0).apply();
 
                     mInterstitialAd.show();
 
@@ -150,6 +162,7 @@ public class GameScreen extends Activity {
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
                     settings.deleteProgress(preferences);
                     preferences.edit().putBoolean("freshStart", true).apply();
+                    preferences.edit().putInt("movesLeft", 0).apply();
 
                     mInterstitialAd.show();
 
@@ -179,6 +192,7 @@ public class GameScreen extends Activity {
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
                     settings.deleteProgress(preferences);
                     preferences.edit().putBoolean("freshStart", true).apply();
+                    preferences.edit().putInt("movesLeft", 0).apply();
 
                     mInterstitialAd.show();
 
@@ -210,6 +224,7 @@ public class GameScreen extends Activity {
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
                     settings.deleteProgress(preferences);
                     preferences.edit().putBoolean("freshStart", true).apply();
+                    preferences.edit().putInt("movesLeft", 0).apply();
 
                     mInterstitialAd.show();
 
@@ -240,6 +255,7 @@ public class GameScreen extends Activity {
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
                     settings.deleteProgress(preferences);
                     preferences.edit().putBoolean("freshStart", true).apply();
+                    preferences.edit().putInt("movesLeft", 0).apply();
                     mInterstitialAd.show();
 
 
@@ -280,7 +296,7 @@ public class GameScreen extends Activity {
     }
 
     public void gameFinished(SharedPreferences preferences) {
-        preferences.edit().putInt("movesLeft",10).apply();
+        preferences.edit().putInt("movesLeft", (counter-1)).apply();
         yellowButton.setEnabled(false);
         redButton.setEnabled(false);
         greenButton.setEnabled(false);
@@ -290,6 +306,7 @@ public class GameScreen extends Activity {
         Intent i = new Intent(getApplicationContext(), WinScreen.class);
         startActivity(i);
         onBackPressed();
+
 
     }
 

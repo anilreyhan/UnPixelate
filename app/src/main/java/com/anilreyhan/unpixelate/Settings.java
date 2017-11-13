@@ -148,6 +148,8 @@ public class Settings extends Activity implements AdapterView.OnItemSelectedList
                 //Toast.makeText(getApplicationContext(), String.valueOf(position) +"Easy",Toast.LENGTH_SHORT).show();
 
                 preferences.edit().putInt("progress", 5).apply();
+                preferences.edit().putInt("movesLeft", 0).apply();
+
 
                 break;
             case 1:
@@ -155,6 +157,8 @@ public class Settings extends Activity implements AdapterView.OnItemSelectedList
                 //Toast.makeText(getApplicationContext(), String.valueOf(position) +"Medium",Toast.LENGTH_SHORT).show();
 
                 preferences.edit().putInt("progress", 10).apply();
+                preferences.edit().putInt("movesLeft", 0).apply();
+
 
 
                 break;
@@ -163,6 +167,8 @@ public class Settings extends Activity implements AdapterView.OnItemSelectedList
                 //Toast.makeText(getApplicationContext(),String.valueOf(position) +"Hard",Toast.LENGTH_SHORT).show();
 
                 preferences.edit().putInt("progress", 15).apply();
+                preferences.edit().putInt("movesLeft", 0).apply();
+
 
                 break;
 
@@ -201,6 +207,8 @@ public class Settings extends Activity implements AdapterView.OnItemSelectedList
                 preferences.edit().putBoolean("freshStart", true).apply();
                 break;
         }
+        preferences.edit().putInt("movesLeft", 0).apply();
+
     }
 
 }

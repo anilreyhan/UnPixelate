@@ -22,6 +22,7 @@ public class WinScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GameScreen.class);
+                onBackPressed();
                 startActivity(i);
             }
         });

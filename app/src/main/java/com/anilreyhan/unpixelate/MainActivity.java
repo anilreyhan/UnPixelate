@@ -16,7 +16,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button startButton,howToButton;
+    Button startButton, howToButton;
     ImageView banner;
     static int a = 0;
 
@@ -40,14 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
         banner = (ImageView) findViewById(R.id.imageView);
         startButton = (Button) findViewById(R.id.startButton);
-        howToButton = (Button)findViewById(R.id.howToButton);
-
+        howToButton = (Button) findViewById(R.id.howToButton);
 
 
         howToButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(),HowTo.class);
+                Intent i = new Intent(getApplicationContext(), HowTo.class);
                 startActivity(i);
             }
         });
@@ -56,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GameScreen.class);
+                finish();
                 startActivity(i);
-
             }
         });
 
