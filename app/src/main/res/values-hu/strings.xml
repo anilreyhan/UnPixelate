@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+    <string name="app_name">UnPixelate</string>
+
+    <string name="title_activity_game_screen">UnPixelate</string>
+    <string name="movesLabel">Még %d lépésed van!</string>
+    <string name="cyanButton">Ciánkék gomb</string>
+    <string name="greenButton">Zöld gomb</string>
+    <string name="redButton">Piros gomb</string>
+    <string name="yellowButton">Sárga gomb</string>
+    <string name="backButton">Mégse</string>
+    <string name="blueButton">Kék gomb</string>
+    <string name="banner">Kép</string>
+    <string name="startButton">Játék kezdése</string>
+    <string name="howToButton">Hogyan lehet játszani?</string>
+    <string name="title_activity_settings">Beállítások</string>
+    <string name="banner_ad_unit_id">ca-app-pub-4253179676056693/1503619483</string>
+    <string name="action_settings">Beállítások</string>
+    <string name="action_feedback">Visszajelzés</string>
+    <string name="action_about">Rólam</string>
+    <string name="numberOfMoves">Még  %d lépésed van!</string>
+    <string name="buttonStartHowTo">Játsszunk!</string>
+    <string name="howToImage">Hogyan kell pixelmentesíteni</string>
+    <string name="vibration">Rezgés</string>
+    <string name="difficulty">Nehézség</string>
+    <string name="wasteMoves">Miért pazarlod a lépéseidet?</string>
+    <string name="noMoreMoves">Nincs több lépésed!</string>
+
+    <string name="youWinButton">Vissza</string>
+    <string name="settingsPopUp">Beállítások</string>
+    <string name="howToString">A bal felső négyzettel kezdesz. \n
+A lenti gombokat használhatod, hogy megváltoztasd a  \n
+        színét, és pixelmentesítsd a képet! \n
+        Ne feledd, lépéseid száma korlátozott! </string>
+
+    <string name="youWinToast">Gratulálok, győztél!!</string>
+    <string name="youLostToast">Veszítettél, nem meglepő !!..</string>
+    <string name="deleteProgressBtn">Delete progress.</string>
+    <string name="deleteProgress">Okay, you can have a fresh start now!</string>
+
+    <string name="title_send_feedback">Send Feedback</string>
+    <string name="mail_feedback_email">anilreyhan@gmail.com</string>
+    <string name="mail_feedback_subject">Feedback about UnPixelate</string>
+    <string name="mail_feedback_message">Hi,\n\nPerfect game! But I have some feedbacks!\n \n \n</string>
+    <string name="youLostButton">Back</string>
+    <string name="feedbackToast">Please send your feedback via email.</string>
+
+    <string name="winScreenQuit">Okay, I\'m bored.</string>
+    <string name="winScreenPlay">Let\'s play another one!</string>
+
+    <string-array name="difficulty_array">
+        <item>Könnyen</item>
+        <item>Közepes</item>
+        <item>Kemény</item>
+    </string-array>
+
+
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

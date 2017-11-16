@@ -248,12 +248,10 @@ public class GameView extends View {
 
         int color = 0;
 
-
         do {
             a = (int) (Math.random() * 6);
         }
         while (a <= 0 || a > 5);
-
 
         if (a == 1) {
             color = R.color.blue;
@@ -270,12 +268,8 @@ public class GameView extends View {
         if (a == 5) {
             color = R.color.yellow;
         }
-
         //System.out.println(a);
-
         return color;
-
-
     }
 
     public void winAnim(View view) {

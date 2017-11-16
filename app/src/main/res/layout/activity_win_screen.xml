@@ -5,24 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.anilreyhan.unpixelate.WinScreen"
-    tools:layout_editor_absoluteY="100dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp"
+    android:background="@color/backgroundColor">
 
-    <ImageView
-        android:layout_width="333dp"
-        android:layout_height="237dp"
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/imageView2"
+        android:id="@+id/videoView"
         app:layout_constraintBottom_toTopOf="@+id/exitButton"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/correct_icon"/>
+        />
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Let's play another one!"
+        android:text="@string/winScreenPlay"
+        android:textAllCaps="false"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,10 +34,11 @@
         android:id="@+id/exitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Okay, I'm bored."
+        android:text="@string/winScreenQuit"
         app:layout_constraintRight_toRightOf="parent"
+        android:textAllCaps="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/nextButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/videoView" />
 
 </android.support.constraint.ConstraintLayout>

@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
             startAnimation();
             a++;
         }
-
-
         FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         Bundle bundle = new Bundle();
@@ -42,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         startButton = (Button) findViewById(R.id.startButton);
         howToButton = (Button) findViewById(R.id.howToButton);
 
-
         howToButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,12 +47,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), GameScreen.class);
-                finish();
                 startActivity(i);
             }
         });

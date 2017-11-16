@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <string name="app_name">UnPixelate</string>
 
     <string name="title_activity_game_screen">UnPixelate</string>
@@ -36,9 +37,11 @@
     <string name="settingsPopUp">Ayarlar</string>
 
     <string name="youWinButton">Geri</string>
-    <string name="howToString">Oyun ekranının altındaki butonları kullanarak karışık renklere
-        sahip olan oyun ekranını tek renk yapmaya çalış! \n
-        Unutma, sol üst kare senin!</string>
+    <string name="howToString">Sol üst kareden başlıyorsun.\n
+        Ekranın altındaki renkli butonları kullanarak kendi kernin rengini değiştirebilirsin.\n
+        Aynı renkli kareler yan yana geldiği zaman birbirlerine eklenirler!\n
+        Bütün kareleri aynı renk yapabilir misin?
+    </string>
 
     <string name="title_send_feedback">Geri bildirim gönder</string>
     <string name="mail_feedback_email">anilreyhan@gmail.com</string>
@@ -47,12 +50,14 @@
     <string name="youLostButton">Geri</string>
     <string name="feedbackToast">Lütfen geri bildirim için email kullanınız.</string>
 
+    <string name="winScreenQuit">Yeter, sıkıldım.</string>
+    <string name="winScreenPlay">Hadi bir tane daha!</string>
+
     <string-array name="difficulty_array">
         <item>Kolay</item>
         <item>Orta</item>
         <item>Zor</item>
     </string-array>
-
 
 
 </resources>
