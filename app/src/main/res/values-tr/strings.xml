@@ -26,6 +26,8 @@
     <string name="wasteMoves">Neden hamlelerini harcıyorsun?</string>
     <string name="noMoreMoves">Hamlen kalmadı ki!</string>
 
+    <string name="movesPassed">%d hamleniz kaldı. Bu hamleler bir sonraki oyunda eklenecek!</string>
+
 
     <string name="youWinToast">Tebrikler, kazandın!!</string>
     <string name="youLostToast">Kaybettin, bir dahaki sefere artık :/ </string>

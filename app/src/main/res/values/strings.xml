@@ -51,6 +51,9 @@
     <string name="winScreenQuit">Okay, I\'m bored.</string>
     <string name="winScreenPlay">Let\'s play another one!</string>
 
+
+    <string name="movesPassed">You have %d moves. Those will be added in the next level.</string>
+
     <string-array name="difficulty_array">
         <item>Easy</item>
         <item>Medium</item>

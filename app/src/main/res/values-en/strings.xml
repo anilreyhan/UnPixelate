@@ -40,6 +40,8 @@
     <string name="deleteProgressBtn">Delete progress.</string>
     <string name="deleteProgress">Okay, you can have a fresh start now!</string>
 
+    <string name="movesPassed">You have %d moves. Those will be added in the next level.</string>
+
     <string name="winScreenQuit">Okay, I\'m bored.</string>
     <string name="winScreenPlay">Let\'s play another one!</string>
 

@@ -1,36 +1,45 @@
 package com.anilreyhan.unpixelate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.VideoView;
 
 public class WinScreen extends AppCompatActivity {
 
     Button nextLevel, quit;
     VideoView videoView;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_win_screen);
 
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
         nextLevel = (Button) findViewById(R.id.nextButton);
         quit = (Button) findViewById(R.id.exitButton);
         videoView = (VideoView) findViewById(R.id.videoView);
-
+        textView = (TextView) findViewById(R.id.movesPassed);
 
         videoView.setVideoURI(randomGif());
         videoView.start();
+
+        textView.setText(getString(R.string.movesPassed, preferences.getInt("movesLeft", 0)));
 
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mediaPlayer) {
                 mediaPlayer.setLooping(true);
+                mediaPlayer.setVolume(0, 0);
             }
         });
 

@@ -4,20 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context="com.anilreyhan.unpixelate.WinScreen"
-    tools:layout_editor_absoluteY="81dp"
     tools:layout_editor_absoluteX="0dp"
-    android:background="@color/backgroundColor">
+    tools:layout_editor_absoluteY="81dp">
 
-    <VideoView
+    <TextView
+        android:id="@+id/movesPassed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/movesPassed"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/videoView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <VideoView
         android:id="@+id/videoView"
-        app:layout_constraintBottom_toTopOf="@+id/exitButton"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/nextButton"
@@ -25,9 +39,10 @@
         android:layout_height="wrap_content"
         android:text="@string/winScreenPlay"
         android:textAllCaps="false"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/videoView"
+        app:layout_constraintEnd_toStartOf="@+id/videoView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/videoView"
         app:layout_constraintTop_toBottomOf="@+id/exitButton" />
 
     <Button
@@ -35,10 +50,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/winScreenQuit"
-        app:layout_constraintRight_toRightOf="parent"
         android:textAllCaps="false"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/nextButton"
+        app:layout_constraintEnd_toStartOf="@+id/videoView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/videoView"
         app:layout_constraintTop_toBottomOf="@+id/videoView" />
 
 </android.support.constraint.ConstraintLayout>

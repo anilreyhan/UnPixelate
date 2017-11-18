@@ -47,7 +47,7 @@ public class Settings extends Activity implements AdapterView.OnItemSelectedList
         ActionBar bar = getActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.rgb(102,102,102)));
 
-        preferences.edit().putBoolean("freshStart", false).apply();
+        preferences.edit().putBoolean("freshStart", true).apply();
 
         vibrationCB = (CheckBox) findViewById(R.id.vibrationCheckBox);
         deleteProgress = (Button)findViewById(R.id.levelsButton);
