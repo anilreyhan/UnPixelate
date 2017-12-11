@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.anilreyhan.unpixelate.New.TutorialView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         howToButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), HowTo.class);
+                Intent i = new Intent(getApplicationContext(), TutorialActivity.class);
                 startActivity(i);
             }
         });

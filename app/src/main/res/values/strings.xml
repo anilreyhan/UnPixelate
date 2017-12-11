@@ -54,6 +54,10 @@
 
     <string name="movesPassed">You have %d moves. Those will be added in the next level.</string>
 
+    <string name="banner_ad_unit_id_tutorial">ca-app-pub-4253179676056693/1073265600</string>
+    <string name="tutorialCongrats">Congratulations, you did it!</string>
+    <string name="letsPlay">Let\'s Play!</string>
+
     <string-array name="difficulty_array">
         <item>Easy</item>
         <item>Medium</item>

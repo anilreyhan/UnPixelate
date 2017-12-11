@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.anilreyhan.unpixelate.New.GameView;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -75,7 +74,6 @@ public class GameScreen extends Activity {
             }
         });
 
-
         gameView = (GameView) findViewById(R.id.gameLayout);
 
         gameView.setActivity(this);
@@ -109,13 +107,13 @@ public class GameScreen extends Activity {
         } else {
             switch (preferences.getInt("difficulty", 2)) {
                 case 1:
-                    counter = movesCounter + (int) (preferences.getInt("progress", 0) * (2));
+                    counter = movesCounter + (int) (preferences.getInt("progress", 10) * (2));
                     break;
                 case 2:
-                    counter = movesCounter + (int) (preferences.getInt("progress", 0) * (1.8));
+                    counter = movesCounter + (int) (preferences.getInt("progress", 10) * (1.8));
                     break;
                 case 3:
-                    counter = movesCounter + (int) (preferences.getInt("progress", 0) * (1.6));
+                    counter = movesCounter + (int) (preferences.getInt("progress", 10) * (1.6));
                     break;
             }
         }
@@ -131,9 +129,7 @@ public class GameScreen extends Activity {
                     settings.deleteProgress(preferences);
                     preferences.edit().putBoolean("freshStart", true).apply();
                     preferences.edit().putInt("movesLeft", 0).apply();
-
                     mInterstitialAd.show();
-
                 } else {
                     if (lastColor == 1) {
                         Toast.makeText(GameScreen.this, getString(R.string.wasteMoves), Toast.LENGTH_SHORT).show();
@@ -141,15 +137,12 @@ public class GameScreen extends Activity {
                         if (vibratePref) {
                             blueButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                         }
-
                         gameView.onBlueClicked();
                         counter--;
                         movesLeft.setText(getString(R.string.numberOfMoves, counter));
                     }
                 }
-
                 lastColor = 1;
-
             }
         });
 
@@ -163,17 +156,14 @@ public class GameScreen extends Activity {
                     settings.deleteProgress(preferences);
                     preferences.edit().putBoolean("freshStart", true).apply();
                     preferences.edit().putInt("movesLeft", 0).apply();
-
                     mInterstitialAd.show();
-
                 } else {
                     if (lastColor == 2) {
                         Toast.makeText(GameScreen.this, getString(R.string.wasteMoves), Toast.LENGTH_SHORT).show();
                     } else {
                         if (vibratePref) {
-                            blueButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+                            greenButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                         }
-
                         gameView.onGreenClicked();
                         counter--;
                         movesLeft.setText(getString(R.string.numberOfMoves, counter));
@@ -188,23 +178,18 @@ public class GameScreen extends Activity {
             @Override
             public void onClick(View view) {
                 if (checkNumberOfMoves()) {
-
                     Toast.makeText(GameScreen.this, R.string.youLostToast, Toast.LENGTH_LONG).show();
                     settings.deleteProgress(preferences);
                     preferences.edit().putBoolean("freshStart", true).apply();
                     preferences.edit().putInt("movesLeft", 0).apply();
-
                     mInterstitialAd.show();
-
-
                 } else {
                     if (lastColor == 3) {
                         Toast.makeText(GameScreen.this, getString(R.string.wasteMoves), Toast.LENGTH_SHORT).show();
                     } else {
                         if (vibratePref) {
-                            blueButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+                            cyanButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                         }
-
                         gameView.onCyanClicked();
                         counter--;
                         movesLeft.setText(getString(R.string.numberOfMoves, counter));
@@ -233,7 +218,7 @@ public class GameScreen extends Activity {
                         Toast.makeText(GameScreen.this, getString(R.string.wasteMoves), Toast.LENGTH_SHORT).show();
                     } else {
                         if (vibratePref) {
-                            blueButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+                            redButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                         }
 
                         gameView.onRedClicked();
@@ -264,7 +249,7 @@ public class GameScreen extends Activity {
                         Toast.makeText(GameScreen.this, getString(R.string.wasteMoves), Toast.LENGTH_SHORT).show();
                     } else {
                         if (vibratePref) {
-                            blueButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+                            yellowButton.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                         }
 
                         gameView.onYellowClicked();
@@ -296,18 +281,15 @@ public class GameScreen extends Activity {
     }
 
     public void gameFinished(SharedPreferences preferences) {
-        preferences.edit().putInt("movesLeft", (counter-1)).apply();
+        preferences.edit().putInt("movesLeft", (counter - 1)).apply();
         yellowButton.setEnabled(false);
         redButton.setEnabled(false);
         greenButton.setEnabled(false);
         cyanButton.setEnabled(false);
         blueButton.setEnabled(false);
-        //mInterstitialAd.show();
         Intent i = new Intent(getApplicationContext(), WinScreen.class);
         startActivity(i);
         onBackPressed();
-
-
     }
 
 

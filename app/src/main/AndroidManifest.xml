@@ -38,7 +38,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/AnimationTheme" />
         <activity android:name=".HowTo" />
-        <activity android:name=".WinScreen"></activity>
+        <activity android:name=".WinScreen" />
+        <activity android:name=".TutorialActivity" />
+        <activity android:name=".WinScreenTutorial"></activity>
     </application>
 
 </manifest>

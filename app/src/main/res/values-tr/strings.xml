@@ -44,6 +44,9 @@
         Aynı renkli kareler yan yana geldiği zaman birbirlerine eklenirler!\n
         Bütün kareleri aynı renk yapabilir misin?
     </string>
+    <string name="banner_ad_unit_id_tutorial">ca-app-pub-4253179676056693/1073265600</string>
+    <string name="tutorialCongrats">Tebrikler, başardın!</string>
+    <string name="letsPlay">Hadi Oynayalım!</string>
 
     <string name="title_send_feedback">Geri bildirim gönder</string>
     <string name="mail_feedback_email">anilreyhan@gmail.com</string>

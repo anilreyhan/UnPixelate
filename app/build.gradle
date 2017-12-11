@@ -7,8 +7,8 @@ android {
         applicationId "com.anilreyhan.unpixelate"
         minSdkVersion 18
         targetSdkVersion 25
-        versionCode 30
-        versionName "6.5"
+        versionCode 34
+        versionName "6.9"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
