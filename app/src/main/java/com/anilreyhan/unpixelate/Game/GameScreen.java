@@ -1,5 +1,5 @@
 
-package com.anilreyhan.unpixelate;
+package com.anilreyhan.unpixelate.Game;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.anilreyhan.unpixelate.New.GameView;
+
+import com.anilreyhan.unpixelate.R;
+import com.anilreyhan.unpixelate.Etc.Settings;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;

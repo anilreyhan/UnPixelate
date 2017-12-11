@@ -1,16 +1,18 @@
-package com.anilreyhan.unpixelate;
+package com.anilreyhan.unpixelate.Etc;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.anilreyhan.unpixelate.R;
+
 public class FeedbackActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toast.makeText(getApplicationContext(),R.string.feedbackToast,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), R.string.feedbackToast,Toast.LENGTH_SHORT).show();
         sendFeedback();
     }
 

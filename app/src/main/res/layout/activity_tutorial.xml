@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.anilreyhan.unpixelate.TutorialActivity"
-    >
+    tools:context="com.anilreyhan.unpixelate.Tutorial.TutorialActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,18 +21,16 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <com.anilreyhan.unpixelate.New.TutorialView
+        <com.anilreyhan.unpixelate.Tutorial.TutorialView
             android:id="@+id/gameLayoutTutorial"
             android:layout_width="match_parent"
-            android:layout_height="360dp"
-            />
+            android:layout_height="360dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="20dp"
-            >
+            android:paddingTop="20dp">
 
 
             <ImageButton
@@ -43,9 +40,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:clickable="true"
                 android:contentDescription="@string/blueButton"
-                android:src="@color/blue"
-                android:clickable="true"/>
+                android:focusable="true"
+                android:src="@color/blue" />
 
             <ImageButton
                 android:id="@+id/cyanButtonTutorial"
@@ -54,9 +52,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:clickable="true"
                 android:contentDescription="@string/cyanButton"
-                android:src="@color/cyan"
-                android:clickable="true"/>
+                android:focusable="true"
+                android:src="@color/cyan" />
 
             <ImageButton
                 android:id="@+id/greenButtonTutorial"
@@ -65,9 +64,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:clickable="true"
                 android:contentDescription="@string/greenButton"
-                android:src="@color/green"
-                android:clickable="true" />
+                android:focusable="true"
+                android:src="@color/green" />
 
             <ImageButton
                 android:id="@+id/redButtonTutorial"
@@ -76,9 +76,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:clickable="true"
                 android:contentDescription="@string/redButton"
-                android:src="@color/red"
-                android:clickable="true" />
+                android:focusable="true"
+                android:src="@color/red" />
 
             <ImageButton
                 android:id="@+id/yellowButtonTutorial"
@@ -87,9 +88,71 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:clickable="true"
                 android:contentDescription="@string/yellowButton"
-                android:src="@color/yellow"
-                android:clickable="true" />
+                android:focusable="true"
+                android:src="@color/yellow" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/arrowLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+
+            <ImageView
+                android:id="@+id/blueArrow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/blueButton"
+                android:src="@drawable/arrow" />
+
+            <ImageView
+                android:id="@+id/cyanArrow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/cyanButton"
+                android:src="@drawable/arrow" />
+
+            <ImageView
+                android:id="@+id/greenArrow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/greenButton"
+                android:src="@drawable/arrow" />
+
+            <ImageView
+                android:id="@+id/redArrow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/redButton"
+                android:src="@drawable/arrow" />
+
+            <ImageView
+                android:id="@+id/yellowArrow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/yellowButton"
+                android:src="@drawable/arrow" />
 
 
         </LinearLayout>
@@ -103,8 +166,7 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="7dp"
         ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id_tutorial">
 

@@ -1,11 +1,13 @@
-package com.anilreyhan.unpixelate.New;
+package com.anilreyhan.unpixelate.Game;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -13,67 +15,67 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import com.anilreyhan.unpixelate.R;
-import com.anilreyhan.unpixelate.TutorialActivity;
 
 import java.util.ArrayList;
 import java.util.Stack;
 
 
-public class TutorialView extends View {
+public class GameView extends View {
 
-    public int size = 10;
-    public int moveCount = 0;
+    public int size;
     Paint paint;
-    public ArrayList<BoxTutorial> boxes = null;
-    public TutorialActivity tutorialActivity;
-    public int tutorialColors[] = {
-            4, 3, 4, 4, 5, 5, 5, 5, 5, 2,
-            2, 5, 1, 3, 1, 3, 2, 4, 1, 2,
-            3, 3, 2, 3, 4, 2, 3, 1, 3, 3,
-            1, 3, 4, 3, 4, 3, 3, 5, 2, 2,
-            5, 5, 5, 2, 1, 5, 2, 1, 2, 3,
-            2, 2, 3, 4, 3, 2, 3, 1, 5, 4,
-            2, 4, 1, 5, 5, 2, 2, 1, 5, 5,
-            4, 2, 3, 1, 3, 5, 1, 4, 3, 4,
-            5, 5, 2, 4, 5, 5, 2, 3, 1, 3,
-            1, 4, 5, 1, 5, 2, 4, 1, 4, 3};
-
-
+    public ArrayList<Box> boxes = null;
+    public GameScreen gameScreen;
+    SharedPreferences preferences;
     public static int x_offset = 0;
 
 
-    public void setActivity(TutorialActivity tutorialActivity_) {
+    public void setActivity(GameScreen gameScreen_){
 
-        this.tutorialActivity = tutorialActivity_;
+       this.gameScreen = gameScreen_;
 
     }
 
-    public TutorialView(Context context) {
+
+    public GameView(Context context) {
         super(context);
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        size = preferences.getInt("progress", 15);
         init(null);
     }
 
-    public TutorialView(Context context, AttributeSet attrs) {
+    public GameView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        size = preferences.getInt("progress", 15);
+
         init(attrs);
 
     }
 
-    public TutorialView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public GameView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        size = preferences.getInt("progress", 15);
+
         init(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public TutorialView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public GameView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        tutorialActivity = new TutorialActivity();
+        gameScreen = new GameScreen();
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        size = preferences.getInt("progress", 15);
+
         init(attrs);
     }
 
-    private Stack<BoxTutorial> boxStack;
-
-    private ArrayList<BoxTutorial> visitedBoxes;
+    private Stack<Box> boxStack;
+    private ArrayList<Box> visitedBoxes;
 
     public void init(@Nullable AttributeSet attrs) {
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -89,19 +91,21 @@ public class TutorialView extends View {
         boxStack.clear();
 
         for (int i = 0; i < size * size; i++) {
+
             boxes.get(i).newColor = -1;
+
         }
 
         boxes.get(0).newColor = color;
         boxStack.push(boxes.get(0));
         while (!boxStack.isEmpty()) {
-            BoxTutorial currentBox = boxStack.pop();
+            Box currentBox = boxStack.pop();
             System.out.println("XXX: ID: " + currentBox.id);
             visitedBoxes.add(currentBox);
 
             currentBox.newColor = color;
 
-            for (BoxTutorial b : getNeighbours(currentBox, currentBox.color)) {
+            for (Box b : getNeighbours(currentBox, currentBox.color)) {
                 if (!visitedBoxes.contains(b)) {
                     boxStack.push(b);
                 }
@@ -122,34 +126,19 @@ public class TutorialView extends View {
             }
         }
 
-
         if (isFinished) {
+            //Toast.makeText(gameScreen.getApplicationContext(), R.string.youWinToast, Toast.LENGTH_LONG).show();
+            //onBlueClicked();
             winAnim(this);
-            tutorialActivity.gameFinished();
-        }
+            gameScreen.gameFinished(preferences);
+            /// preferences.edit().putBoolean("finished", true).apply();
+            //gameScreen.onBackPressed();
 
-
-        visitedBoxes.clear();
-        boxStack.clear();
-        boxStack.push(boxes.get(0));
-        while (!boxStack.isEmpty()) {
-            BoxTutorial currentBox = boxStack.pop();
-            System.out.println("XXX: ID: " + currentBox.id);
-            visitedBoxes.add(currentBox);
-
-            currentBox.text = true;
-
-
-            for (BoxTutorial b : getNeighbours(currentBox, currentBox.color)) {
-                if (!visitedBoxes.contains(b)) {
-                    boxStack.push(b);
-                }
-            }
+            preferences.edit().putInt("progress", size + 1).apply();
+            preferences.edit().putBoolean("freshStart", false).apply();
 
         }
-
         postInvalidate();
-
     }
 
     @Override
@@ -166,84 +155,64 @@ public class TutorialView extends View {
         this.setMeasuredDimension(parentWidth, parentHeight);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-
         if (boxes == null) {
             boxes = new ArrayList<>();
 
             for (int i = 0; i < size * size; i++) {
-                boxes.add(new BoxTutorial(i, i % size, i / size, getContext().getResources().getColor(getColorFromInt(tutorialColors[i])), parentHeight / size));
+                boxes.add(new Box(i, i % size, i / size, getContext().getResources().getColor(randomColor()), parentHeight / size));
             }
             //
         }
 
-        x_offset = (parentWidth - (parentHeight)) / 2;
+        x_offset = (parentWidth - (parentHeight))/2;
 
         postInvalidate();
     }
 
-    public boolean onBlueClicked() {
-        if(boxes.get(0).color == R.color.blue){
-            return false;
-        }
+    public void onBlueClicked() {
         algorithm(returnColor(R.color.blue));
-        return true;
     }
 
-    public boolean onCyanClicked() {
-        if(boxes.get(0).color == R.color.cyan){
-            return false;
-        }
+    public void onCyanClicked() {
         algorithm(returnColor(R.color.cyan));
-        return true;
     }
 
-    public boolean onGreenClicked() {
-        if(boxes.get(0).color == R.color.green){
-            return false;
-        }
+    public void onGreenClicked() {
         algorithm(returnColor(R.color.green));
-        return true;    }
+    }
 
-    public boolean onRedClicked() {
-        if(boxes.get(0).color == R.color.red){
-            return false;
-        }
+    public void onRedClicked() {
         algorithm(returnColor(R.color.red));
-        return true;
     }
 
-
-    public boolean onYellowClicked() {
-        if(boxes.get(0).color == R.color.yellow){
-            return false;
-        }
+    public void onYellowClicked() {
         algorithm(returnColor(R.color.yellow));
-        return true;
     }
 
-    public ArrayList<BoxTutorial> getNeighbours(BoxTutorial box, int color) {
-        ArrayList<BoxTutorial> neighbours = new ArrayList<>();
+
+    public ArrayList<Box> getNeighbours(Box box, int color) {
+        ArrayList<Box> neighbours = new ArrayList<>();
 
         if (box.x - 1 >= 0) {
-            BoxTutorial candidateBox = getBox(box.x - 1, box.y);
+            Box candidateBox = getBox(box.x - 1, box.y);
             if (candidateBox.color == color) {
                 neighbours.add(candidateBox);
             }
         }
         if (box.x + 1 < size) {
-            BoxTutorial candidateBox = getBox(box.x + 1, box.y);
+            Box candidateBox = getBox(box.x + 1, box.y);
             if (candidateBox.color == color) {
                 neighbours.add(candidateBox);
             }
         }
         if (box.y - 1 >= 0) {
-            BoxTutorial candidateBox = getBox(box.x, box.y - 1);
+            Box candidateBox = getBox(box.x, box.y - 1);
             if (candidateBox.color == color) {
                 neighbours.add(candidateBox);
             }
         }
         if (box.y + 1 < size) {
-            BoxTutorial candidateBox = getBox(box.x, box.y + 1);
+            Box candidateBox = getBox(box.x, box.y + 1);
             if (candidateBox.color == color) {
                 neighbours.add(candidateBox);
             }
@@ -251,7 +220,7 @@ public class TutorialView extends View {
         return neighbours;
     }
 
-    public BoxTutorial getBox(int x, int y) {
+    public Box getBox(int x, int y) {
 
         for (int i = 0; i < boxes.size(); i++) {
             if (i == y * size + x) {
@@ -261,33 +230,38 @@ public class TutorialView extends View {
         return null;
     }
 
-
     public int returnColor(int color) {
         return getContext().getResources().getColor(color);
     }
 
-    public int getColorFromInt(int code) {
 
+    public int randomColor() {
+
+        int a;
 
         int color = 0;
 
-        if (code == 1) {
+        do {
+            a = (int) (Math.random() * 6);
+        }
+        while (a <= 0 || a > 5);
+
+        if (a == 1) {
             color = R.color.blue;
         }
-        if (code == 2) {
+        if (a == 2) {
             color = R.color.cyan;
         }
-        if (code == 3) {
+        if (a == 3) {
             color = R.color.green;
         }
-        if (code == 4) {
+        if (a == 4) {
             color = R.color.red;
         }
-        if (code == 5) {
+        if (a == 5) {
             color = R.color.yellow;
         }
-
-
+        //System.out.println(a);
         return color;
     }
 
@@ -296,7 +270,6 @@ public class TutorialView extends View {
                 AnimationUtils.loadAnimation(getContext(),
                         R.anim.win_animation);
         view.startAnimation(animation1);
-
     }
 
 

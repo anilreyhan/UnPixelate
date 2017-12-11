@@ -1,4 +1,4 @@
-package com.anilreyhan.unpixelate;
+package com.anilreyhan.unpixelate.Etc;
 
 
 import android.media.MediaPlayer;
@@ -10,7 +10,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import com.anilreyhan.unpixelate.R;
 
 public class About extends AppCompatActivity {
 

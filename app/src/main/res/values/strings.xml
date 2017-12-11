@@ -57,6 +57,9 @@
     <string name="banner_ad_unit_id_tutorial">ca-app-pub-4253179676056693/1073265600</string>
     <string name="tutorialCongrats">Congratulations, you did it!</string>
     <string name="letsPlay">Let\'s Play!</string>
+    <string name="tutorialExplanationButton">Got it!</string>
+    <string name="tutorialExplanation">Do this and that</string>
+    <string name="doNotShowAgainText">Don\'t show again.</string>
 
     <string-array name="difficulty_array">
         <item>Easy</item>

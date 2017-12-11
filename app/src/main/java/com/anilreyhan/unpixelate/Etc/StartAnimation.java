@@ -1,4 +1,4 @@
-package com.anilreyhan.unpixelate;
+package com.anilreyhan.unpixelate.Etc;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.anilreyhan.unpixelate.MainActivity;
+import com.anilreyhan.unpixelate.R;
 
 public class StartAnimation extends Activity {
 

@@ -1,4 +1,4 @@
-package com.anilreyhan.unpixelate.New;
+package com.anilreyhan.unpixelate.Tutorial;
 
 
 import android.graphics.Canvas;

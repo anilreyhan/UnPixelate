@@ -1,5 +1,5 @@
 
-package com.anilreyhan.unpixelate;
+package com.anilreyhan.unpixelate.Tutorial;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,11 +9,15 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.anilreyhan.unpixelate.New.TutorialView;
+import com.anilreyhan.unpixelate.R;
+import com.anilreyhan.unpixelate.Etc.Settings;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -23,6 +27,7 @@ import com.google.android.gms.ads.InterstitialAd;
 public class TutorialActivity extends Activity {
 
     public ImageButton blueButton, greenButton, cyanButton, redButton, yellowButton;
+    public ImageView blueArrow, greenArrow, cyanArrow, redArrow, yellowArrow;
     TextView movesLeft;
     int counter = 20;
     int lastColor;
@@ -38,6 +43,8 @@ public class TutorialActivity extends Activity {
         setContentView(R.layout.activity_tutorial);
         final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
+        Intent intent =new Intent(getApplicationContext(),TutorialExplanation.class);
+        startActivity(intent);
 
         blueButton = (ImageButton) findViewById(R.id.blueButtonTutorial);
         greenButton = (ImageButton) findViewById(R.id.greenButtonTutorial);
@@ -46,8 +53,14 @@ public class TutorialActivity extends Activity {
         yellowButton = (ImageButton) findViewById(R.id.yellowButtonTutorial);
         movesLeft = (TextView) findViewById(R.id.movesLeftTutorial);
 
-        lastColor = 4;
-        //updateButtons();
+        blueArrow = (ImageView) findViewById(R.id.blueArrow);
+        greenArrow = (ImageView) findViewById(R.id.greenArrow);
+        cyanArrow = (ImageView) findViewById(R.id.cyanArrow);
+        redArrow = (ImageView) findViewById(R.id.redArrow);
+        yellowArrow = (ImageView) findViewById(R.id.yellowArrow);
+
+
+        updateButtons();
         setGreenAvailable();
 
         settings = new Settings();
@@ -90,7 +103,6 @@ public class TutorialActivity extends Activity {
         tutorialView = (TutorialView) findViewById(R.id.gameLayoutTutorial);
 
         tutorialView.setActivity(this);
-
 
 
         vibratePref = preferences.getBoolean("vibrate", true);
@@ -269,43 +281,88 @@ public class TutorialActivity extends Activity {
     }
 
     public void setBlueAvailable() {
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.win_animation);
+
         yellowButton.setEnabled(false);
         redButton.setEnabled(false);
         greenButton.setEnabled(false);
         cyanButton.setEnabled(false);
         blueButton.setEnabled(true);
+        blueArrow.startAnimation(animation);
+        cyanArrow.clearAnimation();
+        greenArrow.clearAnimation();
+        redArrow.clearAnimation();
+        yellowArrow.clearAnimation();
     }
 
     public void setCyanAvailable() {
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.win_animation);
+
         yellowButton.setEnabled(false);
         redButton.setEnabled(false);
         greenButton.setEnabled(false);
         cyanButton.setEnabled(true);
         blueButton.setEnabled(false);
+        blueArrow.clearAnimation();
+        cyanArrow.startAnimation(animation);
+        greenArrow.clearAnimation();
+        redArrow.clearAnimation();
+        yellowArrow.clearAnimation();
     }
 
     public void setGreenAvailable() {
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.win_animation);
+
         yellowButton.setEnabled(false);
         redButton.setEnabled(false);
         greenButton.setEnabled(true);
         cyanButton.setEnabled(false);
         blueButton.setEnabled(false);
+        blueArrow.clearAnimation();
+        cyanArrow.clearAnimation();
+        greenArrow.startAnimation(animation);
+        redArrow.clearAnimation();
+        yellowArrow.clearAnimation();
     }
 
     public void setRedAvailable() {
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.win_animation);
+
         yellowButton.setEnabled(false);
         redButton.setEnabled(true);
         greenButton.setEnabled(false);
         cyanButton.setEnabled(false);
         blueButton.setEnabled(false);
+        blueArrow.clearAnimation();
+        cyanArrow.clearAnimation();
+        greenArrow.clearAnimation();
+        redArrow.startAnimation(animation);
+        yellowArrow.clearAnimation();
     }
 
     public void setYellowAvailable() {
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.win_animation);
+
         yellowButton.setEnabled(true);
         redButton.setEnabled(false);
         greenButton.setEnabled(false);
         cyanButton.setEnabled(false);
         blueButton.setEnabled(false);
+        blueArrow.clearAnimation();
+        cyanArrow.clearAnimation();
+        greenArrow.clearAnimation();
+        redArrow.clearAnimation();
+        yellowArrow.startAnimation(animation);
     }
 
     public void updateButtons() {
@@ -366,4 +423,6 @@ public class TutorialActivity extends Activity {
         }
 
     }
+
+
 }

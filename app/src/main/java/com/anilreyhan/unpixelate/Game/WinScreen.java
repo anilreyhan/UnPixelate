@@ -1,10 +1,7 @@
-package com.anilreyhan.unpixelate;
+package com.anilreyhan.unpixelate.Game;
 
-import android.app.Application;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,7 +12,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-public class WinScreenTutorial extends AppCompatActivity {
+import com.anilreyhan.unpixelate.MainActivity;
+import com.anilreyhan.unpixelate.R;
+
+public class WinScreen extends AppCompatActivity {
 
     Button nextLevel, quit;
     VideoView videoView;
@@ -24,26 +24,25 @@ public class WinScreenTutorial extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_win_screen_tutorial);
+        setContentView(R.layout.activity_win_screen);
 
         final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        nextLevel = (Button) findViewById(R.id.nextButtonTutorial);
-        quit = (Button) findViewById(R.id.exitButtonTutorial);
-        videoView = (VideoView) findViewById(R.id.videoViewTutorial);
-        textView = (TextView) findViewById(R.id.tutorialCongratsView);
+        nextLevel = (Button) findViewById(R.id.nextButton);
+        quit = (Button) findViewById(R.id.exitButton);
+        videoView = (VideoView) findViewById(R.id.videoView);
+        textView = (TextView) findViewById(R.id.movesPassed);
 
         videoView.setVideoURI(randomGif());
         videoView.start();
 
+        textView.setText(getString(R.string.movesPassed, preferences.getInt("movesLeft", 0)));
 
-        textView.setText(R.string.tutorialCongrats);
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mediaPlayer) {
                 mediaPlayer.setLooping(true);
                 mediaPlayer.setVolume(0, 0);
-
             }
         });
 
@@ -82,7 +81,7 @@ public class WinScreenTutorial extends AppCompatActivity {
         Uri anim4 = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.win_anim_4);
 
         Uri anim = anim1;
-        int a;
+        int a = 0;
         do {
             a = (int) (Math.random() * 5);
         }
@@ -103,13 +102,5 @@ public class WinScreenTutorial extends AppCompatActivity {
         }
         return anim;
     }
-
-    public Context getContext() {
-        return getApplicationContext();
-    }
-
-
-
-
 
 }

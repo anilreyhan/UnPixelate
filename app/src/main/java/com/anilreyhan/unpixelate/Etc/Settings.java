@@ -1,4 +1,4 @@
-package com.anilreyhan.unpixelate;
+package com.anilreyhan.unpixelate.Etc;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.View;
@@ -19,6 +18,9 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.anilreyhan.unpixelate.Game.GameScreen;
+import com.anilreyhan.unpixelate.R;
+
 public class Settings extends Activity implements AdapterView.OnItemSelectedListener {
     CheckBox vibrationCB;
     GameScreen gameScreen;
@@ -26,6 +28,7 @@ public class Settings extends Activity implements AdapterView.OnItemSelectedList
     public Context getContext() {
         return getApplicationContext();
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

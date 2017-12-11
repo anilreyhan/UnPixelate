@@ -21,26 +21,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GameScreen"
+            android:name=".Game.GameScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Settings"
+            android:name=".Etc.Settings"
             android:screenOrientation="portrait"
-            android:theme="@style/SettingsPopUp" />
+            android:theme="@style/PopUpTheme" />
         <activity
-            android:name=".About"
+            android:name=".Etc.About"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FeedbackActivity"
+            android:name=".Etc.FeedbackActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".StartAnimation"
+            android:name=".Etc.StartAnimation"
             android:screenOrientation="portrait"
             android:theme="@style/AnimationTheme" />
-        <activity android:name=".HowTo" />
-        <activity android:name=".WinScreen" />
-        <activity android:name=".TutorialActivity" />
-        <activity android:name=".WinScreenTutorial"></activity>
+        <activity
+            android:name=".Game.WinScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Tutorial.TutorialActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Tutorial.WinScreenTutorial"
+            android:screenOrientation="portrait" />
+
+
+        <activity
+            android:name=".Tutorial.TutorialExplanation"
+            android:screenOrientation="portrait"
+            android:theme="@style/PopUpTheme" />
+
+
     </application>
 
 </manifest>
