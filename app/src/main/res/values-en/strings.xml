@@ -24,13 +24,19 @@
     <string name="difficulty">Difficulty</string>
     <string name="wasteMoves">Why are you wasting your moves?</string>
     <string name="noMoreMoves">No more moves left!</string>
+    <string name="tutorialExplanationButton">Got it!</string>
+    <string name="doNotShowAgainText">Don\'t show again.</string>
 
 
     <string name="youWinButton">Back</string>
-    <string name="howToString">You have the top-left box. \n
+    <string name="tutorialExplanation">You have the top-left box. \n
         You need to use the buttons on the bottom to change your \n
         color and UnPixelate the pixelated view! \n
-        Do not forget, you have limited amount of moves! </string>
+        Do not forget, you have limited amount of moves! \n
+        To help you, this is tutorial mode.\n
+        The arrows will show you the moves and you
+        can see which boxes are yours.\n
+        Your boxes will be marked with an icon. </string>
 
     <string name="settingsPopUp">Settings</string>
 

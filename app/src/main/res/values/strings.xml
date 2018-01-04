@@ -29,10 +29,14 @@
 
     <string name="youWinButton">Back</string>
     <string name="settingsPopUp">Settings</string>
-    <string name="howToString">You have the top-left box. \n
+    <string name="tutorialExplanation">You have the top-left box. \n
         You need to use the buttons on the bottom to change your \n
         color and UnPixelate the pixelated view! \n
-        Do not forget, you have limited amount of moves! </string>
+        Do not forget, you have limited amount of moves! \n
+        To help you, this is tutorial mode.\n
+        The arrows will show you the moves and you
+        can see which boxes are yours.\n
+        Your boxes will be marked with an icon.</string>
 
 
     <string name="youWinToast">Congratulations, you win!!</string>
@@ -58,8 +62,11 @@
     <string name="tutorialCongrats">Congratulations, you did it!</string>
     <string name="letsPlay">Let\'s Play!</string>
     <string name="tutorialExplanationButton">Got it!</string>
-    <string name="tutorialExplanation">Do this and that</string>
     <string name="doNotShowAgainText">Don\'t show again.</string>
+    <string name="youLostText">Sorry, you lost.. Maybe next time?</string>
+    <string name="scoreText">Your score is: %d !</string>
+    <string name="highScoreText">High Score: %d</string>
+    <string name="exitButton">Back to main menu</string>
 
     <string-array name="difficulty_array">
         <item>Easy</item>

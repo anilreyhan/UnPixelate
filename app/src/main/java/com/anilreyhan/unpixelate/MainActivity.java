@@ -11,12 +11,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.anilreyhan.unpixelate.Etc.About;
-import com.anilreyhan.unpixelate.Etc.FeedbackActivity;
-import com.anilreyhan.unpixelate.Etc.Settings;
-import com.anilreyhan.unpixelate.Etc.StartAnimation;
-import com.anilreyhan.unpixelate.Game.GameScreen;
-import com.anilreyhan.unpixelate.Tutorial.TutorialActivity;
+import com.anilreyhan.unpixelate.etc.About;
+import com.anilreyhan.unpixelate.etc.FeedbackActivity;
+import com.anilreyhan.unpixelate.etc.Settings;
+import com.anilreyhan.unpixelate.etc.StartAnimation;
+import com.anilreyhan.unpixelate.game.GameScreen;
+import com.anilreyhan.unpixelate.tutorial.TutorialActivity;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 

@@ -24,10 +24,12 @@
     <string name="difficulty">Nehézség</string>
     <string name="wasteMoves">Miért pazarlod a lépéseidet?</string>
     <string name="noMoreMoves">Nincs több lépésed!</string>
+    <string name="tutorialExplanationButton">Got it!</string>
+    <string name="doNotShowAgainText">Don\'t show again.</string>
 
     <string name="youWinButton">Vissza</string>
     <string name="settingsPopUp">Beállítások</string>
-    <string name="howToString">A bal felső négyzettel kezdesz. \n
+    <string name="tutorialExplanation">A bal felső négyzettel kezdesz. \n
 A lenti gombokat használhatod, hogy megváltoztasd a  \n
         színét, és pixelmentesítsd a képet! \n
         Ne feledd, lépéseid száma korlátozott! </string>

@@ -25,6 +25,8 @@
     <string name="difficulty">Zorluk</string>
     <string name="wasteMoves">Neden hamlelerini harcıyorsun?</string>
     <string name="noMoreMoves">Hamlen kalmadı ki!</string>
+    <string name="tutorialExplanationButton">Got it!</string>
+    <string name="doNotShowAgainText">Don\'t show again.</string>
 
     <string name="movesPassed">%d hamleniz kaldı. Bu hamleler bir sonraki oyunda eklenecek!</string>
 
@@ -39,7 +41,7 @@
     <string name="settingsPopUp">Ayarlar</string>
 
     <string name="youWinButton">Geri</string>
-    <string name="howToString">Sol üst kareden başlıyorsun.\n
+    <string name="tutorialExplanation">Sol üst kareden başlıyorsun.\n
         Ekranın altındaki renkli butonları kullanarak kendi kernin rengini değiştirebilirsin.\n
         Aynı renkli kareler yan yana geldiği zaman birbirlerine eklenirler!\n
         Bütün kareleri aynı renk yapabilir misin?

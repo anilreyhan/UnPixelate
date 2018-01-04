@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.anilreyhan.unpixelate.Game.GameScreen"
+    tools:context="com.anilreyhan.unpixelate.game.GameScreen"
     >
 
     <LinearLayout
@@ -22,7 +22,7 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <com.anilreyhan.unpixelate.Game.GameView
+        <com.anilreyhan.unpixelate.game.GameView
             android:id="@+id/gameLayout"
             android:layout_width="match_parent"
             android:layout_height="360dp"

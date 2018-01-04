@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.anilreyhan.unpixelate">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,38 +23,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Game.GameScreen"
+            android:name=".game.GameScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Etc.Settings"
+            android:name=".etc.Settings"
             android:screenOrientation="portrait"
             android:theme="@style/PopUpTheme" />
         <activity
-            android:name=".Etc.About"
+            android:name=".etc.About"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Etc.FeedbackActivity"
+            android:name=".etc.FeedbackActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Etc.StartAnimation"
+            android:name=".etc.StartAnimation"
             android:screenOrientation="portrait"
             android:theme="@style/AnimationTheme" />
         <activity
-            android:name=".Game.WinScreen"
+            android:name=".game.WinScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Tutorial.TutorialActivity"
+            android:name=".tutorial.TutorialActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Tutorial.WinScreenTutorial"
+            android:name=".tutorial.WinScreenTutorial"
             android:screenOrientation="portrait" />
-
-
         <activity
-            android:name=".Tutorial.TutorialExplanation"
+            android:name=".tutorial.TutorialExplanation"
             android:screenOrientation="portrait"
             android:theme="@style/PopUpTheme" />
 
+        <activity android:name=".game.LostPopUp"
+            android:screenOrientation="portrait"
+            android:theme="@style/PopUpTheme"/>
 
     </application>
 

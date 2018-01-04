@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context="com.anilreyhan.unpixelate.Game.WinScreen"
+    tools:context="com.anilreyhan.unpixelate.game.WinScreen"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 
@@ -23,10 +23,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <VideoView
+    <WebView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/backgroundColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

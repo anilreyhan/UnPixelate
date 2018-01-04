@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.anilreyhan.unpixelate.Tutorial.TutorialExplanation"
+    tools:context="com.anilreyhan.unpixelate.tutorial.TutorialExplanation"
     tools:layout_editor_absoluteY="81dp">
 
 
@@ -36,11 +36,12 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/soundSettingsLayout"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:paddingRight="10dp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tutorialExplanationButton">
@@ -63,7 +64,6 @@
             android:id="@+id/tutorialExplanationCB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
